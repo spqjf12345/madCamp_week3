@@ -47,7 +47,7 @@ class App extends React.Component {
       this.state.tasks[draggableId].isDone = true; // 해당 Task를 disableDraggable 한다
     }
 
-    //여기서 잠깐... Column'을' 드래그앤드롭했을 때 처리하기
+    // 여기서 잠깐... Column'을' 드래그앤드롭했을 때 처리하기
     if(type === 'column') {
       const newColumnOrder = Array.from(this.state.columnOrder);
       newColumnOrder.splice(source.index, 1);
