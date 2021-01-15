@@ -11,7 +11,7 @@ const Container = styled.div`
 `;
 
 class App extends React.Component {
-  state = initialData; //initialData는 지금은 따로 파일에서 하드코딩한 상태. 이제 DB에서 어케 부를지 방법을 찾아보자.
+  state = initialData; // initialData는 지금은 따로 파일에서 하드코딩한 상태. 이제 DB에서 어케 부를지 방법을 찾아보자.
 
   // 드래그가 시작되면
   onDragStart = (start, provided) => {
@@ -25,7 +25,7 @@ class App extends React.Component {
       : 0;
     document.body.style.backgroundColor = `rgba(153,  141, 217, ${opacity})`;
   }
-  //딱 드롭했을 때가 되면
+  // 딱 드롭했을 때가 되면
   onDragEnd = result => {
     console.log(result);
     document.body.style.color = 'inherit';
@@ -33,18 +33,21 @@ class App extends React.Component {
 
     const { destination, source, draggableId, type } = result;
 
-    //Task가 옮겨졌을 때 처리하기
+    // Task가 옮겨졌을 때 처리하기
     if (!destination) { //이상한 아예 바깥 곳에 놓았을 경우
       return;
     }
-    if ( //이전 위치와 같은 곳에 놓았을 경우
+    if ( // 이전 위치와 같은 곳에 놓았을 경우
       destination.droppableId === source.droppableId &&
       destination.index === source.index
     ) {
       return;
     }
+    if(destination.droppableId === 'column-3'){ // Task가 Done 칼럼으로 옮겨졌을 경우
+      this.state.tasks[draggableId].isDone = true; // 해당 Task를 disableDraggable 한다
+    }
 
-    //여기서 잠깐... Column 옮겨졌을 때 처리하기
+    //여기서 잠깐... Column'을' 드래그앤드롭했을 때 처리하기
     if(type === 'column') {
       const newColumnOrder = Array.from(this.state.columnOrder);
       newColumnOrder.splice(source.index, 1);
