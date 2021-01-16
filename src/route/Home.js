@@ -43,12 +43,12 @@ class Home extends React.Component {
     ) {
       return;
     }
-    if(destination.droppableId === 'column-3'){ // Task가 Done 칼럼으로 옮겨졌을 경우
+    if (destination.droppableId === 'column-3') { // Task가 Done 칼럼으로 옮겨졌을 경우
       this.state.tasks[draggableId].isDone = true; // 해당 Task를 disableDraggable 한다
     }
 
     //여기서 잠깐... Column 옮겨졌을 때 처리하기
-    if(type === 'column') {
+    if (type === 'column') {
       const newColumnOrder = Array.from(this.state.columnOrder);
       newColumnOrder.splice(source.index, 1);
       newColumnOrder.splice(destination.index, 0, draggableId);
@@ -116,7 +116,7 @@ class Home extends React.Component {
 
   };
 
-        
+
   render() {
     return (
       <DragDropContext

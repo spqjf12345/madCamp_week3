@@ -18,7 +18,8 @@ function Navbar() {
           <FaIcons.FaBars onClick={showSidebar} />
         </Link>
         <div className='app-title'>
-          <h1>Gargen To-do</h1>
+          <h1>Gardening To-do🌱</h1>
+          {/* 다진이가 오타 발견 */}
         </div>
       </div>
       <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
