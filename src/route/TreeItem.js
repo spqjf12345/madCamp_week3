@@ -10,7 +10,7 @@ import TreeColumn from "./TreeColumn";
 
 
 class TreeItem extends React.Component {
-	flowers = ["🍋", "🍊", "🍈"];
+	tree = ["🍋", "🍊", "🍈"];
 	level = ["❤", "🧡", "💛", "💚", "💜", "🤎", "🖤"];
 	state = initialData;
 

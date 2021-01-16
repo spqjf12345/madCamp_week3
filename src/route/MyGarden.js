@@ -4,13 +4,15 @@ import React from "react";
 import '../style/MyGarden.css'
 import Grid from "./Grid"
 import TreeList from "./TreeList"
+import Test from "./Test"
 
 
 const MyGarden = () => {
     return (
-        <div class ="flex-container"> \
-        <TreeList/>
-        <Grid/> 
+        <div class ="flex-container"> 
+        {/* <TreeList/> */}
+        {/* <Grid/>  */}
+        <Test/>
         </div>
 
     );  

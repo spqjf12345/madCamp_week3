@@ -4,6 +4,7 @@
     
   margin: auto;
   margin-top: 10em;
+  margin-left: 20em;
 
 
   width: 72%;
@@ -14,4 +15,8 @@
 
   padding: 10px;
     
+}
+
+.grid-container{
+  margin-right: 20em;
 }

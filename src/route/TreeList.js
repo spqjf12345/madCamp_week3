@@ -7,10 +7,10 @@ const tree = ["🍋", "🍊", "🍈"];
 const getItems = (count, offset = 0) =>
     
   Array.from({ length: count }, (v, k) => k).map(k => ({
-    //id: tree [k+ offset]-new Date().getTime(),
+    //id: tree [k+ offset],//-new Date().getTime(),
     id:  `item-${k + offset}-${new Date().getTime()}`,
-    //content: tree [k+ offset] 
-    content: `item ${k + offset}`
+    content: tree [k+ offset] 
+    //content: `item ${k + offset}`
   }));
 
 const reorder = (list, startIndex, endIndex) => {
@@ -95,8 +95,8 @@ function TreeList() {
         }}
       >
         Add new group
-      </button>  */}
-      {/* <button
+      </button> 
+      <button
         type="button"
         onClick={() => {
           setState([...state, getItems(1)]);
