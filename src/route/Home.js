@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from "../initial-data";
 import Column from '../Column.jsx';
+import '../style/Home.css'
 
 
 // Styles
@@ -135,6 +136,7 @@ class Home extends React.Component {
 
   render() {
     return (
+      <div className = "home">
       <DragDropContext
         onDragEnd={this.onDragEnd}
         onDragStart={this.onDragStart}
@@ -156,10 +158,12 @@ class Home extends React.Component {
                 return <Column key={column.id} column={column} tasks={tasks} index={index} />;
               })}
               {provided.placeholder}
+              
             </Container>
           )}
         </Droppable>
       </DragDropContext>
+      </div>
     );
   }
 }

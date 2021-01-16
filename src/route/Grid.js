@@ -20,8 +20,8 @@ const Grid = () => {
 					<Button variant="success" >🌳🌳</Button>{' '}
 					<Button variant="success" >🌳🌳</Button>{' '}
 					<Button variant="success">🌳🌳</Button>{' '}
-					<Button variant="success" >🌳🌳</Button>{' '}
-					<Button variant="success" >🌳🌳</Button>{' '}
+					<Button variant="success" ></Button>{' '}
+					<Button variant="success" ></Button>{' '}
 				</MDBRow>
 
 				<MDBRow className="mt-n1">
@@ -35,8 +35,8 @@ const Grid = () => {
 					<Button variant="success" >🌳🌳</Button>{' '}
 					<Button variant="success" >🌳🌳</Button>{' '}
 					<Button variant="success">🌳🌳</Button>{' '}
-					<Button variant="success" >🌳🌳</Button>{' '}
-					<Button variant="success" >🌳🌳</Button>{' '}
+					<Button variant="success" ></Button>{' '}
+					<Button variant="success" ></Button>{' '}
 				</MDBRow>
 				<MDBRow className="mt-n1">
 					<Button variant="success">🌳🌳</Button>{' '}
@@ -49,8 +49,8 @@ const Grid = () => {
 					<Button variant="success" >🌳🌳</Button>{' '}
 					<Button variant="success" >🌳🌳</Button>{' '}
 					<Button variant="success">🌳🌳</Button>{' '}
-					<Button variant="success" >🌳🌳</Button>{' '}
-					<Button variant="success" >🌳🌳</Button>{' '}
+					<Button variant="success" ></Button>{' '}
+					<Button variant="success" ></Button>{' '}
 				</MDBRow>
 				<MDBRow className="mt-n1">
 					<Button variant="success">🌳🌳</Button>{' '}
@@ -63,8 +63,8 @@ const Grid = () => {
 					<Button variant="success" >🌳🌳</Button>{' '}
 					<Button variant="success" >🌳🌳</Button>{' '}
 					<Button variant="success">🌳🌳</Button>{' '}
-					<Button variant="success" >🌳🌳</Button>{' '}
-					<Button variant="success" >🌳🌳</Button>{' '}
+					<Button variant="success" ></Button>{' '}
+					<Button variant="success" ></Button>{' '}
 				</MDBRow>
 				<MDBRow className="mt-n1">
 					<Button variant="success">🌳🌳</Button>{' '}
@@ -77,8 +77,7 @@ const Grid = () => {
 					<Button variant="success" >🌳🌳</Button>{' '}
 					<Button variant="success" >🌳🌳</Button>{' '}
 					<Button variant="success">🌳🌳</Button>{' '}
-					<Button variant="success" >🌳🌳</Button>{' '}
-					<Button variant="success" >🌳🌳</Button>{' '}
+					
 				</MDBRow>
 				<MDBRow className="mt-n1">
 					<Button variant="success">🌳🌳</Button>{' '}
@@ -91,8 +90,7 @@ const Grid = () => {
 					<Button variant="success" >🌳🌳</Button>{' '}
 					<Button variant="success" >🌳🌳</Button>{' '}
 					<Button variant="success">🌳🌳</Button>{' '}
-					<Button variant="success" >🌳🌳</Button>{' '}
-					<Button variant="success" >🌳🌳</Button>{' '}
+					
 				</MDBRow>
 
 			</MDBContainer>

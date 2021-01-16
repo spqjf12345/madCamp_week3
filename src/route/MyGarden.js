@@ -3,13 +3,13 @@ import React from "react";
 // import {Container, Col, Row, Button} from 'react-bootstrap';
 import '../style/MyGarden.css'
 import Grid from "./Grid"
-import TreeItem from "./TreeItem"
+import TreeList from "./TreeList"
 
 
 const MyGarden = () => {
     return (
         <div class ="flex-container"> \
-        <TreeItem/>
+        <TreeList/>
         <Grid/> 
         </div>
 

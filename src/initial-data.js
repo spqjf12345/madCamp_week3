@@ -23,6 +23,23 @@ const initialData = {
 		}
 	},
 	columnOrder: ['column-1', 'column-2', 'column-3'],
+
+	//tree schema
+	treeTask: {
+		'type1': { id: 'tree-1', icon: '🍋'}, 
+		'type2': { id: 'tree-2', icon: '🍊'}, 
+		'type3': { id: 'tree-3', icon: '🍈'}, 
+	},
+
+	treeColumn: {
+		'tree_column': {
+			id: 'tree-column-1',
+			treeTasks: ['type1', 'type2', 'type3']
+		}
+	}
+	
+	
+
 };
 
 export default initialData;
