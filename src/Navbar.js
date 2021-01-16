@@ -12,12 +12,16 @@ function Navbar() {
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <>
-      <IconContext.Provider value={{ color: '#fff' }}>
-        <div className='navbar'>
-          <Link to='#' className='menu-bars'>
-            <FaIcons.FaBars onClick={showSidebar} />
-          </Link>
+  
+    <IconContext.Provider value={{ color: '#fff' }}>
+      <div className='navbar'>
+        <Link to='#' className='menu-bars'>
+          <FaIcons.FaBars onClick={showSidebar} />
+        </Link>
+        <div className='app-title'>
+          <h1>Gardening To-do🌱</h1>
+          {/* QA credit: 다진이가 오타 발견 */}
+
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
@@ -38,8 +42,8 @@ function Navbar() {
             })}
           </ul>
         </nav>
+        </div>
       </IconContext.Provider>
-    </>
   );
 }
 

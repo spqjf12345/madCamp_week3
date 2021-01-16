@@ -29,10 +29,8 @@ class TreeItem extends React.Component {
     } 
 
     render(){
-        return(
-            flowers
-          
-        );
+        return 0;
+    
     }
 }
 
