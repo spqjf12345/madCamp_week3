@@ -1,0 +1,17 @@
+.garden-container{
+    align-items: center;
+    vertical-align: middle;
+    
+  margin: auto;
+  margin-top: 10em;
+
+
+  width: 72%;
+
+
+  border: 5px solid #80522c;
+
+
+  padding: 10px;
+    
+}
