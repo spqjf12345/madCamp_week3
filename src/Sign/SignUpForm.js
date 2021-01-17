@@ -67,7 +67,7 @@ const SignUpForm = ({
           errorText={errors.pwconfirm}
         />
         <br />
-        <RaisedButton
+        <RaisedButton href ="/"
           className="signUpSubmit"
           primary={true}
           type="submit"
@@ -76,7 +76,7 @@ const SignUpForm = ({
       </form>
       <p>
         Aleady have an account? <br />
-        <a href="/">Log in here</a>
+        <a href="/login">Log in here</a>
       </p>
     </div>
   );

@@ -1,17 +1,32 @@
-import React from "react";
-
-function Profile() {
+import React, {Text} from "react";
+import {Row, Col, Container} from "react-bootstrap"
+import img_woman from '../Image/woman.png';
+import {motion} from "framer-motion";
+import "../style/Profile.css"
+class Profile extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+		  nickname: "sojeong",
+		  password:"1234",
+		  lifeCount:"10",
+		  killCount:"2"
+		  }  
+		};
+	render(){
 	return (
 		<div className='Profile'>
-			<h1>name : 조소정</h1><br/>
-			<h2>PassWord : 0000</h2><br/>
-			<h2>plant count : 00</h2><br/>
-			<h2>dead plant count : 00</h2><br/>
-			<h2>PassWord : 0000</h2><br/>
+			{/* <motion.div animate = {{scale:0.5}}/> */}
+			<img src = {img_woman}/>
+			<p>name : {this.state.nickname}</p>
+			<p>PassWord : {this.state.password}</p>
+			<p>plant count : {this.state.lifeCount}</p>
+			<p>dead plant count : {this.state.killCount}</p>
 
 		</div>
 
 	);
+	}
 }
 
 

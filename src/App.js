@@ -9,6 +9,7 @@ import Home from './route/Home'
 import SignUp from './Sign/SignUp'
 import Timer from './route/TreeColumn'
 import Grid from './route/Grid'
+import Login from './route/Login'
 
 class App extends React.Component {
   render(){
@@ -16,6 +17,8 @@ class App extends React.Component {
     <Router>
       <Navbar />
       <Switch>
+        <Route path='/signup' exact component={SignUp} />
+        <Route path='/login' exact component={Login} />
         <Route path='/' exact component={Home} />
         <Route path='/Profile' component={Profile} />
         <Route path='/MyGarden' component={MyGarden} />

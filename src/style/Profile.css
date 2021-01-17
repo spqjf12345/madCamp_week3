@@ -1,0 +1,11 @@
+.Profile{
+    margin: auto;
+    margin-left: 10%;
+    align-items: center;
+    border: 5px solid #80522c;
+    display: block;
+}
+
+.User{
+    display: block; 
+}

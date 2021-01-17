@@ -98,7 +98,8 @@ class SignUpContainer extends React.Component {
         email: this.state.user.email
       };
       this.submitSignup(user);
-    } else {
+    }
+     else {
       const errors = payload.errors;
       this.setState({
         errors

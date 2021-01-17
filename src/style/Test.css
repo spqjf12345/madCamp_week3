@@ -1,11 +1,19 @@
 .droppable{
-    margin-left: 10em;
-    margin: auto;
+    margin-left: 5em;
+    /* margin: auto; */
     margin-top: 5em;
+    border: rgb(168, 135, 86);
 }
 
  .droppable2{
     margin-right: 10em;
-    margin: auto;
+    /* margin: auto; */
     margin-top: 5em;
+    border: blanchedalmond;
+} 
+.div3{
+    margin-right: 10em;
+    /* margin: auto; */
+    margin-top: 5em;
+    border: blanchedalmond;
 } 
