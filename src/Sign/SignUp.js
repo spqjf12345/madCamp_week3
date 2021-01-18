@@ -16,32 +16,11 @@ class SignUp extends React.Component {
     render(){
     return (
         <MuiThemeProvider>
-            {/* {this.props.children} */}
+            {this.props.children}
             <SignUpContainer/>
         </MuiThemeProvider>
-        // <Modal.Dialog>
-        //     <Modal.Header closeButton>
-        //         <Modal.Title>this.state.title</Modal.Title>
-        //     </Modal.Header>
-
-        //     <Modal.Body>
-        //         <p>Modal body text goes here.</p>
-        //     </Modal.Body>
-
-        //     <Modal.Footer>
-        //         <Button color="primary">primary</Button>{' '}
-        //         <Button color="secondary">secondary</Button>{' '}
-        //     </Modal.Footer> 
-        // </Modal.Dialog>
     );
     }
-
-    // <Popup trigger={<button> Trigger</button>} position="right center">
-    //  <div>Popup content here !!</div> 
-    // {/* <MuiThemeProvider>
-    //  <SignUpContainer/>
-    // </MuiThemeProvider> */}
-    // </Popup>
 }
 
 export default SignUp;

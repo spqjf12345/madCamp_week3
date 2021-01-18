@@ -5,46 +5,25 @@ import TextField from "material-ui/TextField";
 import PasswordStr from "./PasswordStr";
 import "../style/SignUp.css";
 
-const SignUpForm = ({
-  history,
-  onSubmit,
-  onChange,
-  errors,
-  user,
-  score,
-  btnTxt,
-  type,
-  pwMask,
-  onPwChange
-}) => {
+const SignUpForm = ({history, onSubmit, onChange, errors, user, score, btnTxt, type,pwMask,onPwChange}) => {
+  
   return (
     <div className="loginBox">
       <h1>Sign Up</h1>
       {errors.message && <p style={{ color: "red" }}>{errors.message}</p>}
 
       <form onSubmit={onSubmit}>
-        <TextField
-          name="username"
-          floatingLabelText="user name"
-          value={user.username}
-          onChange={onChange}
-          errorText={errors.username}
-        />
-        <TextField
-          name="email"
-          floatingLabelText="email"
-          value={user.email}
-          onChange={onChange}
-          errorText={errors.email}
-        />
-        <TextField
-          type={type}
-          name="password"
-          floatingLabelText="password"
-          value={user.password}
-          onChange={onPwChange}
-          errorText={errors.password}
-        />
+        <TextField name="username" floatingLabelText="user name" value={user.username} onChange={onChange} errorText={errors.username}>
+         
+        </TextField>
+
+        <TextField name="email" floatingLabelText="email" value={user.email} onChange={onChange} errorText={errors.email}>
+  
+        </TextField>
+
+        <TextField type={type} name="password" floatingLabelText="password" value={user.password} onChange={onPwChange} errorText={errors.password}>
+       
+        </TextField>
 
         <div className="pwStrRow">
           {score >= 1 && (
