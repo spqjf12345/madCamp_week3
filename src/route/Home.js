@@ -3,8 +3,11 @@ import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from "../initial-data";
 import Column from '../Column.jsx';
-import '../style/Home.css'
-
+import '../style/Home.css';
+import Dialog from "./DoneDialog";
+import Timer from "./Timer";
+import SetTimer from "./SetTimer";
+import { CommunicationSpeakerPhone } from "material-ui/svg-icons";
 
 // Styles
 const Container = styled.div`
@@ -135,8 +138,14 @@ class Home extends React.Component {
   };
 
   render() {
+    const currentDate = new Date();
+    const year = (currentDate.getMonth() === 11 && currentDate.getDate() > 18) ? currentDate.getFullYear() + 1 : currentDate.getFullYear(); //2021
+  
     return (
+
       <div className = "home">
+        <SetTimer />
+       
       <DragDropContext
         onDragEnd={this.onDragEnd}
         onDragStart={this.onDragStart}

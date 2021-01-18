@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import "../style/Test.css"
 const tree = ["🍋", "🍊", "🍈"];
-const ground = ["🎅", "👩‍🎤", "👼", "👩‍🦰", "👨‍🦱", "👱‍♀️", "👨", "🧒", "👩‍🦳", "👸"];
+const ground = ["🎅", "👩‍🎤", "👼", "👩‍🦰","👨‍🦱", "👱‍♀️", "👨", "🧒"]
+// const extension = ["👨‍🦱", "👱‍♀️", "👨", "🧒"]
+// [["👨‍🦱", "👱‍♀️", "👨", "🧒"],
+//  ["👩‍🦳", "👸", "🙂","😠"],
+//  ["😔","😖","🙁","🤬"],
+//  ["🥶", "😦","🤢", "😈"]];
 
 // // fake data generator
 // const getItems = (count, offset = 0) =>
@@ -11,6 +15,15 @@ const ground = ["🎅", "👩‍🎤", "👼", "👩‍🦰", "👨‍🦱", "�
 //         id: `item-${k + offset}`,
 //         content: `item ${k + offset}`
 //     }));
+// const groundList =(count, offset =0)=> 
+// const array
+// (tree.map((items, index) => {
+//     {items.map((subItem, sIndex) =>{
+//         id: `item==${sIndex + offset}`,
+//         content: tree [sIndex + offset] 
+//     })}
+// }))
+
 
 const treeList = (count, offset = 0) =>
     Array.from({length: count},(v, k) => k).map(k => ({
@@ -23,6 +36,13 @@ const groundList = (count, offset = 0) =>
         id: `ite==${k + offset}`,
         content: ground [k+ offset] 
     }))
+
+// const extensionList = (count, offset = 0) =>
+// Array.from({length: count},(v, k) => k).map(k => ({
+//     id: `ite==${k + offset}`,
+//     content: extension [k+ offset] 
+// }))
+
 
 // a little function to help us with reordering the result
 // const reorder = (list, startIndex, endIndex) => {
@@ -41,9 +61,7 @@ const reorder = (list, startIndex, endIndex) => {
     return result;
 };
 
-/**
- * Moves an item from one list to another list.
- */
+
 const move = (source, destination, droppableSource, droppableDestination) => {
     //source 움직인 쪽의 리스트, destClone 목적지 쪽의 리스트
     const sourceClone = Array.from(source);
@@ -72,14 +90,14 @@ const getItemStyle = (isDragging, draggableStyle) => ({
     margin: `${grid}px ${grid}px ${grid}px ${grid}px`,
 
     // change background colour if dragging
-    background: isDragging ? 'lightgreen' : 'grey',
+    background: isDragging ? 'grey' : 'grey',
 
     // styles we need to apply on draggables
     ...draggableStyle
 });
 
 const getListStyle = isDraggingOver => ({
-    background: isDraggingOver ? 'lightblue' : 'lightgrey',
+    background: isDraggingOver ? 'lightgrey' : 'lightgrey',
     padding: grid,
     width: 250
 });
@@ -87,15 +105,11 @@ const getListStyle = isDraggingOver => ({
 class test extends React.Component {
     state = {
         items: treeList(3),
-        selected: groundList(5),
-       // extension: groundList(5)
+        //selected: extension[4][4]
+        selected: groundList(8),
+        //extension: extensionList(4)
     };
 
-    /**
-     * A semi-generic way to handle multiple lists. Matches
-     * the IDs of the droppable container to the names of the
-     * source arrays stored in the state.
-     */
     id2List = {
         droppable: 'items',
         droppable2: 'selected',
@@ -107,55 +121,60 @@ class test extends React.Component {
   
     onDragEnd = result => {
         const { source, destination } = result;
-
         // dropped outside the list
         if (!destination) {
             return;
         }
-        console.log(source.droppableID)
-        console.log(destination.droppableID)
-        console.log(source)
-        console.log(destination)
         //자기 자신으로 움직이는 경우 
         if (source.droppableId === destination.droppableId) {
             const items = reorder(this.getList(source.droppableId),source.index,destination.index);
             let state = { items };
-            //모르겠음
-            if (source.droppableId === 'droppable2') {
-                state = { selected: items };
-            }
-            this.setState(state);
+            const newState = [state]
+            newState[source.droppableId] = items;
+            this.setState(newState)
+            
+            //this.setState(state);
+            // //모르겠음
+            // if (source.droppableId === 'droppable2') {
+            //     state = { selected: items };
+            // }
+
         } else {
             //움직인 상태 결과 값 
             const result = move(this.getList(source.droppableId),this.getList(destination.droppableId),source,destination);
-
-            this.setState({items: result.droppable, selected: result.droppable2
-            });
+            //this.setState({items: result.droppable, selected: result.droppable2//, extension = result.droppable3
+            const newState = [this.state.selected]
+            newState[source.droppableId] = result[source.droppableId];
+            newState[destination.droppableId] = result[destination.droppableId]
+            this.setState(newState.filter(group => group.length))
+            
+            }
         }
-    };
-
-    // Normally you would want to split things out into separate components.
-    // But in this example everything is just done in one place for simplicity
     render() {
         return (
-          
+            <div>
+                <button type = "button" onClick ={() => {this.setState([this.state.selected,[]]);}} >add new group</button>
             <DragDropContext onDragEnd={this.onDragEnd}>
-                <div className = "droppable">
-                <Droppable droppableId="droppable">
+                <div class = "droppable">
+                <Droppable droppableId="droppable" direction = "horizontal">
                     {(provided, snapshot) => (
-                        <div
+                        <div 
                             ref={provided.innerRef}
+                            
                             style={getListStyle(snapshot.isDraggingOver)}>
+                                <p>tree</p>
+                                <div class = "item">
                             {this.state.items.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
                                     index={index}>
                                     {(provided, snapshot) => (
-                                        <div
+                                        <div 
                                             ref={provided.innerRef}
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
+                                            
                                             style={getItemStyle(
                                                 snapshot.isDragging,
                                                 provided.draggableProps.style
@@ -165,6 +184,7 @@ class test extends React.Component {
                                     )}
                                 </Draggable>
                             ))}
+                            </div>
                             {provided.placeholder}
                         </div>
                     )}
@@ -175,8 +195,44 @@ class test extends React.Component {
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
+                            
                             style={getListStyle(snapshot.isDraggingOver)}>
+                                <p>garden</p>
+                                <div className = "item">
                             {this.state.selected.map((item, index) => (
+            
+                                <Draggable
+                                    key={item.id}
+                                    draggableId={item.id}
+                                    index={index}>
+                                    {(provided, snapshot) => (
+                                        <div
+                                            ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}
+                                            
+                                            style={getItemStyle(
+                                                snapshot.isDragging,
+                                                provided.draggableProps.style
+                                            )}>
+                                            {item.content}
+                                        </div>
+                                    )}
+                                </Draggable>
+                            ))}
+                            </div>
+                            {provided.placeholder}
+                        </div>
+                    )}
+                </Droppable>
+                </div>
+                <div className = "div2">
+                {/* <Droppable droppableId="droppable3">
+                    {(provided, snapshot) => (
+                        <div
+                            ref={provided.innerRef}
+                            style={getListStyle(snapshot.isDraggingOver)}>
+                            {this.state.extension.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
@@ -198,10 +254,10 @@ class test extends React.Component {
                             {provided.placeholder}
                         </div>
                     )}
-                </Droppable>
+                </Droppable> */}
                 </div>
             </DragDropContext>
-         
+            </div>
         );
     }
 }

@@ -1,0 +1,25 @@
+.inputGroup{
+    border: rosybrown;
+    vertical-align: middle;
+}
+
+.timer-title{
+    
+}
+
+/* .col-sm-4{
+     padding-left: smaller space value; 
+     padding-right: smaller space value;
+} */
+.SetTimer{
+    border: 5px gainsboro;
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-right: 2em;
+    /* background-color:rgb(255, 240, 212); */
+    
+}
+.timer-settimer{
+    background-color:rgb(255, 240, 212);
+}
