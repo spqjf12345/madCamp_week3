@@ -1,7 +1,7 @@
 import React from "react";
 import '../style/MyProfile.css';
 const ImgUpload =({onChange,src})=>
-    <label htmlFor="photo-upload" className="custom-file-upload fas">
+<label htmlFor="photo-upload" className="custom-file-upload fas">
       <div className="img-wrap img-upload" >
         <img for="photo-upload" src={src}/>
       </div>
@@ -11,37 +11,28 @@ const ImgUpload =({onChange,src})=>
   
   const Name =({onChange,value})=>
     <div className="field">
-      <label htmlFor="name">
-        name:
-      </label>
-      <input 
-        id="name" 
-        type="text" 
-        onChange={onChange} 
-        maxlength="25" 
-        value={value} 
-        placeholder="Alexa" 
-        required/>
+      <label htmlFor="name"> name: </label>
+      <input id="name" type="text" onChange={onChange} maxLength="25"  required/>
     </div>
   
     
-  const Status =({
-    onChange,
-    valueColumncar
-  })=>
+  const Status =({onChange, valueColumncar})=>
     <div className="field">
-      <label htmlFor="status">
-        status:
-      </label>
-      <input 
-        id="status" 
-        type="text" 
-        onChange={onChange} 
-        maxLength="35" 
-        //value={value} 
-        placeholder="It's a nice day!" 
-        required/>
+      <label htmlFor="status">PASSWORD:</label>
+      <input id="status" type="text" onChange={onChange}  maxLength="35"  required/>
     </div>
+
+  const KillCount =({onChange,valueColumncar})=>
+    <div className="field">
+      <label htmlFor="killcount">Kill Count </label>
+      <input id="killcount" type="text" onChange={onChange}  maxLength="35"  required/>
+    </div>
+
+    const AllPlant =({onChange,valueColumncar})=>
+      <div className="field">
+        <label htmlFor="AllPlant"> All plant:</label>
+        <input  id="AllPlant"  type="text"   onChange={onChange} maxLength="35"   required/>
+      </div>
   
   
   const Profile =({
@@ -49,17 +40,20 @@ const ImgUpload =({onChange,src})=>
     src,
     name,
     status,
+    KillCount,
+    AllPlant
   })=>
     <div className="card">
       <form onSubmit={onSubmit}>
-        <h1>Profile Card</h1>
         <label className="custom-file-upload fas">
-          <div className="img-wrap" >
+          {/* <div className="img-wrap" >
             <img for="photo-upload" src={src}/>
-          </div>
+          </div> */}
         </label>
         <div className="name">{name}</div>
         <div className="status">{status}</div>
+        <div className="KillCount">{KillCount}</div>
+        <div className="AllPlant">{AllPlant}</div>
         <button type="submit" className="edit">Edit Profile </button>
       </form>
     </div>
@@ -71,7 +65,6 @@ const ImgUpload =({onChange,src})=>
   })=>
     <div className="card">
       <form onSubmit={onSubmit}>
-        <h1>Profile Card</h1>
           {children}
         <button type="submit" className="save">Save </button>
       </form>
@@ -83,6 +76,8 @@ const ImgUpload =({onChange,src})=>
       imagePreviewUrl: 'https://github.com/OlgaKoplik/CodePen/blob/master/profile.jpg?raw=true',
       name:'',
       status:'',
+      KillCount:'',
+      AllPlant:'',
       active: 'edit'
     }
   
@@ -111,6 +106,18 @@ const ImgUpload =({onChange,src})=>
         status,
       });
     }
+    editKillCount = e => {
+      const KillCount = e.target.value;
+      this.setState({
+        KillCount,
+      });
+    }
+    editAllPlant = e => {
+      const AllPlant = e.target.value;
+      this.setState({
+        AllPlant,
+      });
+    }
     
     handleSubmit= e =>{
       e.preventDefault();
@@ -123,7 +130,7 @@ const ImgUpload =({onChange,src})=>
     render() {
       const {imagePreviewUrl, 
              name, 
-             status, 
+             status, killCount, allPlant,
              active} = this.state;
       return (
         <div>
@@ -132,13 +139,17 @@ const ImgUpload =({onChange,src})=>
               <ImgUpload onChange={this.photoUpload} src={imagePreviewUrl}/>
               <Name onChange={this.editName} value={name}/>
               <Status onChange={this.editStatus} value={status}/>
+              <KillCount onChange={this.editKillCount} value={killCount}/>
+              <AllPlant onChange={this.editAllPlant} value={allPlant}/>
             </Edit>
           ):(
             <Profile 
               onSubmit={this.handleSubmit} 
               src={imagePreviewUrl} 
               name={name} 
-              status={status}/>)}
+              status={status}
+              KillCount={KillCount}
+              AppPlant={AllPlant}/>)}
           
         </div>
       )

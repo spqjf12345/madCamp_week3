@@ -24,11 +24,5 @@ export const SidebarData = [
     // icon: <FaIcons.FaCartPlus />,
     icon: "🌱",
     cName: 'nav-text'
-  },
-  {
-    title: 'Timer',
-    path: '/timer',
-    icon: <FaIcons.FaCartPlus />,
-    cName: 'nav-text'
   }
 ];

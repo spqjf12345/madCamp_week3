@@ -17,7 +17,7 @@ class MyGarden extends React.Component {
         super(props);
         this.state = {
             showDialog: true,
-            itemFriends: ["🎄", "🎈", "🎃"]
+            //itemFriends: ["🎄", "🎈", "🎃"]
         
         }
     }
@@ -35,34 +35,20 @@ class MyGarden extends React.Component {
                 {/* <img src = {Ground} className="img-garden"/> */}
                 <div className="img-garden"/>
 				{this._showDialog.bind(this)}
+                {this._showItem.bind(this)}
                 {/* <Button className='button' onClick={this._showDialog.bind(this)}> Show item </Button> */}
-                <Dialog  show={this.state.showDialog}  itemFriends = {this.state.itemFriends}/>  
+                <Dialog  show={this.state.showDialog} />  
                 {/* <Dialog  show={this.state.showDialog} item = {this.state.item1}/> */}
                 {/* <Dialog  show={this.state.showDialog} item = {this.state.item2}/> */}
                 {/* <Dialog  show={this.state.showDialog} item = {this.state.item4}/>  */}
            
-           {/* <img src = {grass} className="img-grass"/> */}
+         
 			 </div>
 
 		);
 	}
 } 
 export default MyGarden;
-    // return (
-        // <div class ="flex-container"> 
-        {/* <Board knightPosition={[0, 0]} /> */}
-         {/* <Square black>
-            <Tree />
-         </Square> */}
-        {/* <TreeList/> */}
-        {/* <Grid/> */}
-        {/* <img src= {chessBoard} class ="img-board"></img> */}
-
-        {/* //  <Dialog/> */}
-        {/* <Test/> */}
-        <My/>
-        // </div>
-
-    // );  
+    
 
 

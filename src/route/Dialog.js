@@ -9,7 +9,7 @@ export default class Dialog extends Component {
             diffY: 0,
             dragging: false,
             styles: {},
-            // itemFriends: ["🎄", "🎈", "🎃"]
+            
         }
 
         this._dragStart = this._dragStart.bind(this);
@@ -18,7 +18,7 @@ export default class Dialog extends Component {
     }
 
     _dragStart(e) {
-        console.log(e)
+        console.log("_dragStart")
         this.setState({
             diffX: e.screenX - e.currentTarget.getBoundingClientRect().left,
             diffY: e.screenY - e.currentTarget.getBoundingClientRect().top,
@@ -27,21 +27,18 @@ export default class Dialog extends Component {
     }
 
     _dragging(e) {
-        console.log("_dragging");
+        console.log("_dragging")
         if (this.state.dragging) {
             var left = e.screenX - this.state.diffX;
             var top = e.screenY - this.state.diffY;
-            this.setState({
-                styles: {
-                    left: left,
-                    top: top
-                }
+            console.log(left, top);
+            this.setState({styles: {left: left, top: top }   
             });
         }
     }
 
     _dragEnd() {
-        console.log("_dragEnd");
+        console.log("_dragEnd")
         this.setState({
             dragging: false
         });
@@ -51,45 +48,31 @@ export default class Dialog extends Component {
     //var items = this.props.item;
     // console.log("items", this.props.item);
     render(){
+        const a = "🎄"
+        // const itemFriends= ["🎄", "🎈", "🎃"]
         return (
-            <div>
-            <div className={"Dialog"}
-                    style={this.state.styles}
+           <div>
+            <div className={"Dialog"} style={this.state.styles}
                     onMouseDown={this._dragStart}
-                    onMouseMove={this._dragging}
+                    // onMouseMove={this._dragging}
                     onMouseUp={this._dragEnd}
                     onMouseLeave={this._dragEnd}
-                > 
-              
-                    
-                    <p className='DialogTitle'>{this.props.itemFriends[0]}</p>
-                 
+                > 🎄
+                 {/* {this.props.itemFriends.map((item) => <p>{item}</p>)} */}
+              </div>
 
-                    <p className='DialogTitle'>{this.props.itemFriends[1]}</p>
-                  
-
-                    <p className='DialogTitle'>{this.props.itemFriends[2]}</p>
-                
-                </div>
-{/* 
-                <div className={'newDialog'} style={this.state.styles} 
-                onMouseDown={this._dragStart} 
-                onMouseMove={this._dragging} 
-                onMouseUp={this._dragEnd}
-                onMouseLeave={this._dragEnd}
-                >
-                </div>
-                <div className={'newDialog2'} style={this.state.styles} 
-                onMouseDown={this._dragStart} 
-                onMouseMove={this._dragging} 
-                onMouseUp={this._dragEnd}
-                onMouseLeave={this._dragEnd}
-                >
-                                                              
-                      
-                </div> */}
-    
-               </div>
-        );
+            <div className={"Dialog1"} style={this.state.styles}
+            onMouseDown={this._dragStart}
+            // onMouseMove={this._dragging}
+            onMouseUp={this._dragEnd}
+            onMouseLeave={this._dragEnd} onMouseMove ={this._dragging}
+            > 🎈
+            {/* {this.props.itemFriends.map((item) => <p>{item}</p>)} */}
+            </div>
+            </div>
+            );
+        }
     }
-}
+                    
+              
+      
