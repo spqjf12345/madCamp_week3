@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import '../style/SetTimer.css';
 import Home from "./Home";
 
+let killCount = 0;
 class SetTimer extends Component {
   constructor() {
     super();
     this.state = {
       hours: 0,
       minutes: 0,
-      seconds:0,
-      killCout:0
+      seconds:0
     }
     this.hoursInput = React.createRef();
     this.minutesInput= React.createRef();
@@ -38,20 +38,22 @@ class SetTimer extends Component {
     budContainer.classList.add("showing");
   }
 
-
   countDown = () => {
     const  { hours, minutes, seconds } = this.state;
+    const LS_KEY_KILL_PLANT = "kill_plant";
+    killCount = JSON.parse(localStorage.getItem(LS_KEY_KILL_PLANT));
     let c_seconds = this.convertToSeconds(hours, minutes, seconds);
     if (!this.props.toDoIsNotEmpty && !this.props.InProgressIsNotEmpty){ // 우선 할일을 다 하게 되면
       this.stopTimer();
-    } else { // 할일 다 안했으면
-      if ( hours === 0 &&  minutes === 0 & seconds === 0){ // time over
-        this.state.killCout +=1;
-        console.log(this.state.killCout);
-        alert(`시간 내에 할일을 다 못하셨군요... 꽃이 죽었어요ㅠㅠ`)
+    } else { // 할일 다 안 한 경우면
+      if ( hours === 0 &&  minutes === 0 & seconds === 0) { // time over라면
+        killCount = JSON.parse(localStorage.getItem(LS_KEY_KILL_PLANT)) + 1;
+        console.log("kill count is " + killCount);
+
+        document.querySelector(".budImageContainer").classList.remove("showing");
+        alert(`시간 내에 할일을 다 못하셨군요... 꽃이 시들었어요. ㅠㅠ`)
       }
-      const LS_KEY_KILL_PLANT = "kill_plant"
-      localStorage.setItem(LS_KEY_KILL_PLANT, this.state.killCout);
+      localStorage.setItem(LS_KEY_KILL_PLANT, JSON.stringify(killCount));
     }
     
     if(c_seconds) {
@@ -99,7 +101,6 @@ class SetTimer extends Component {
     this.minutesInput.current.value = "";
     this.secondsInput.current.value = "";
   }
-
 
   render() {
     const { hours, minutes, seconds } = this.state;

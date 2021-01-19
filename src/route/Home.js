@@ -13,7 +13,6 @@ import wateringImg from './watering.png';
 import windImg from './wind.png';
 import trimmingImg from './trimming.png';
 
-
 // Styles
 const Container = styled.div`
   display: flex;
@@ -66,7 +65,7 @@ class Home extends React.Component {
       randomReward.classList.add("showing");
       setTimeout(() => {
         randomReward.classList.remove("showing");
-      }, 800)
+      }, 1000)
     }
 
     // 여기서 잠깐... Column 자체가 옮겨졌을 때 처리하기
@@ -147,7 +146,7 @@ class Home extends React.Component {
     if (!toDoIsNotEmpty && !InProgressIsNotEmpty) {
       const randomIndex = Math.floor(Math.random() * FLOWER_COUNT);
       const theFlower = FLOWERS[randomIndex];
-      alert(`Congratulations!\nYou've got your Flower:\n${theFlower}`);
+      alert(`축하합니다!\n꽃이 자랐어요.\n${theFlower}`);
 
       let currentFlowersString = getFlower();
       if (!currentFlowersString){ // local에 아무것도 없음
@@ -176,6 +175,22 @@ class Home extends React.Component {
         toDoIsNotEmpty={this.state.columns["column-1"].taskIds.length}
         InProgressIsNotEmpty={this.state.columns["column-2"].taskIds.length}
       />
+      
+      <div className="sunShineContainer">
+        <img src="https://lh3.googleusercontent.com/proxy/V7_ZR1X-TbB58fpWZCjUgnifEM2Ch4llYZiTUywXD83mVn1YiLHS7B0I0VrdVqEOZPsnXzJ4i3_m_bQWs4_ew6iFla0UJ0NO48WQE90coJkPIy0mwEct06AGgml55w" />
+      </div>
+      <div className="wateringContainer">
+        <img src={wateringImg} />
+      </div>
+      <div className="windContainer">
+        <img src={windImg} />
+      </div>
+      <div className="trimContainer">
+        <img src={trimmingImg} />
+      </div>
+      <div className="budImageContainer">
+        <img src="https://media1.giphy.com/media/1yTgqsdYPFw4Oqly5T/giphy.gif" />
+      </div>
       {/* <div className="home"> */}
         <div className="toDoContainer">
           <DragDropContext
@@ -204,24 +219,6 @@ class Home extends React.Component {
               )}
             </Droppable>
           </DragDropContext>
-        </div>
-        <div className="budImageContainer">
-          {/* <img src="https://www.pngrepo.com/png/169302/180/bud.png"/> */}
-          {/* <img src="https://media0.giphy.com/media/QaTEfUroq5jMRWV2eB/source.gif"></img> */}
-          {/* <img src ="https://static1.squarespace.com/static/570e502c2eeb8122343cc237/58e68280e58c625ba892f340/5b031bfe03ce64928f499172/1528030851667/fruitblossom.gif?format=1500w"></img> */}
-         <img src ="https://media1.giphy.com/media/1yTgqsdYPFw4Oqly5T/giphy.gif"></img>
-        </div>
-        <div className="sunShineContainer">
-          <img src="https://lh3.googleusercontent.com/proxy/V7_ZR1X-TbB58fpWZCjUgnifEM2Ch4llYZiTUywXD83mVn1YiLHS7B0I0VrdVqEOZPsnXzJ4i3_m_bQWs4_ew6iFla0UJ0NO48WQE90coJkPIy0mwEct06AGgml55w"/>
-        </div>
-        <div className="wateringContainer">
-          <img src={wateringImg}/>
-        </div>
-        <div className="windContainer">
-          <img src={windImg}/>
-        </div>
-        <div className="trimContainer">
-          <img src={trimmingImg}/>
         </div>
         
       {/* </div> */}

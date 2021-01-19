@@ -13,46 +13,42 @@ const ImgUpload =({onChange,src})=>
   const emailText = localStorage.getItem("email");
   const all_plantText = localStorage.getItem("all_plant");
   const kill_plantText = localStorage.getItem("kill_plant");
-  
-
 
   const Name =({onChange,value})=>
    
     <div className="field">
-      <label htmlFor="name"> name: </label>
+      <label htmlFor="name">이름</label>
       {/* {toggle ? (<p onDoubleClick={toggleInput}> {text}</p>) : (<input type="text" value= {text} onChange={handleChange}/>)} */}
       <h3>{nameText}</h3>
       {/* <input id="name" type="text" onChange={onChange} maxLength="25" value = "hi"/> */}
     </div>
   
-  
-    
   const Status =({onChange, valueColumncar})=>
     <div className="field">
-      <label htmlFor="status">PASSWORD:</label>
-      <h3>{passText}</h3>
+      <label htmlFor="status">내가 키운 꽃들</label>
+      <h3>{localStorage.getItem("flowers")}</h3>
       {/* <input id="status" type="text" onChange={onChange}  maxLength="35"  required/> */}
     </div>
 
 const Email =({onChange,valueColumncar})=>
 <div className="field">
-  <label htmlFor="email">EMAIL</label>
+  <label htmlFor="email">이메일</label>
   <h3>{emailText}</h3>
   {/* <input id="email" type="text" onChange={onChange}  maxLength="35"  required/> */}
 </div>
 
   const KillCount =({onChange,valueColumncar})=>
     <div className="field">
-      <label htmlFor="killcount">Kill Count </label>
-      <h3>{kill_plantText}</h3>
+      <label htmlFor="killcount">시든 꽃 수</label>
+      <h3>{localStorage.getItem("kill_plant")}</h3>
       {console.log(kill_plantText)}
       {/* <input id="killcount" type="text" onChange={onChange}  maxLength="35"  required/> */}
     </div>
 
     const AllPlant =({onChange,valueColumncar})=>
       <div className="field">
-        <label htmlFor="AllPlant"> All plant</label>
-        <h3>{all_plantText}</h3>
+        <label htmlFor="AllPlant">심은 꽃 수</label>
+        <h3>{localStorage.getItem("all_plant")}</h3>
         {console.log(all_plantText)}
         </div>
         {/* <input  id="AllPlant"  type="text"   onChange={onChange} maxLength="35"   required/> */}

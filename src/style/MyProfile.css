@@ -29,10 +29,10 @@ body{
     /* background-size: 40%, 80%; */
     /* animation: open .5s; */
   }
-  @keyframes open {
+  /* @keyframes open {
     0%  {background-position: 166% -25%, 220% -69%;}
     100%{background-position: 120% -5%, 200% -40%;}
-  }
+  } */
   form{
     display: flex;
     flex-direction: column;
@@ -184,8 +184,6 @@ body{
   .lds-ripple div:nth-child(2) {
     animation-delay: -0.5s;
   }
-  
-  
   .fa-instagram{
     position: absolute;
     color: #79f1a4;

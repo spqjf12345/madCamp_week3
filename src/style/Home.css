@@ -1,30 +1,35 @@
 .budImageContainer{
 	display: none;
-	margin-left: 0em;
-	width: 120px;
-	height: 120px;
+	text-align: center;
+	margin-left: 50em;
+	width: 200px;
+	height: 200px;
 }
 .sunShineContainer{
+	/* display: inline-block; */
 	display: none;
-	margin-left: 0em;
+	margin-left: 60em;
 	width: 120px;
 	height: 120px;
 }
 .wateringContainer{
+	/* display: inline-block; */
 	display: none;
-	margin-left: 0em;
+	margin-left: 60em;
 	width: 120px;
 	height: 120px;
 }
 .windContainer{
+	/* display: inline-block; */
 	display: none;
-	margin-left: 0em;
+	margin-left: 60em;
 	width: 120px;
 	height: 120px;
 }
 .trimContainer{
+	/* display: inline-block; */
 	display: none;
-	margin-left: 0em;
+	margin-left: 60em;
 	width: 120px;
 	height: 120px;
 }
@@ -58,7 +63,7 @@
       }
   }
 .toDoContainer{
-	display:inline-block;
+	display:block;
 	margin-top: 0em;
 	margin-left:37em;
 	width: 50%;
