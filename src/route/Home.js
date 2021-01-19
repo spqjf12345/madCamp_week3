@@ -6,7 +6,6 @@ import Column from '../Column.jsx';
 import '../style/Home.css';
 import '../style/SetTimer.css';
 import Dialog from "./DoneDialog";
-import Timer from "./Timer";
 import SetTimer from "./SetTimer";
 import Fade from '@material-ui/core/Fade'
 import { CommunicationSpeakerPhone } from "material-ui/svg-icons";
@@ -156,7 +155,6 @@ class Home extends React.Component {
       }
       else
       currentFlowersString += (","+theFlower);
-      // console.log(currentFlowersString);
 
       saveFlower(currentFlowersString);
     }
@@ -208,7 +206,10 @@ class Home extends React.Component {
           </DragDropContext>
         </div>
         <div className="budImageContainer">
-          <img src="https://www.pngrepo.com/png/169302/180/bud.png"/>
+          {/* <img src="https://www.pngrepo.com/png/169302/180/bud.png"/> */}
+          {/* <img src="https://media0.giphy.com/media/QaTEfUroq5jMRWV2eB/source.gif"></img> */}
+          {/* <img src ="https://static1.squarespace.com/static/570e502c2eeb8122343cc237/58e68280e58c625ba892f340/5b031bfe03ce64928f499172/1528030851667/fruitblossom.gif?format=1500w"></img> */}
+         <img src ="https://media1.giphy.com/media/1yTgqsdYPFw4Oqly5T/giphy.gif"></img>
         </div>
         <div className="sunShineContainer">
           <img src="https://lh3.googleusercontent.com/proxy/V7_ZR1X-TbB58fpWZCjUgnifEM2Ch4llYZiTUywXD83mVn1YiLHS7B0I0VrdVqEOZPsnXzJ4i3_m_bQWs4_ew6iFla0UJ0NO48WQE90coJkPIy0mwEct06AGgml55w"/>

@@ -120,8 +120,7 @@ class SignUpContainer extends React.Component {
   render() {
     return (
       <div>
-        <SignUpForm onSubmit={this.validateForm} onChange={this.handleChange} onPwChange={this.pwHandleChange} e
-        rrors={this.state.errors} user={this.state.user} score={this.state.score} btnTxt={this.state.btnTxt} type={this.state.type} pwMask={this.pwMask}/>
+        <SignUpForm onSubmit={this.validateForm} onChange={this.handleChange} onPwChange={this.pwHandleChange} errors={this.state.errors} user={this.state.user} score={this.state.score} btnTxt={this.state.btnTxt} type={this.state.type} pwMask={this.pwMask}/>
       </div>
     );
   }
