@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import '../style/MyProfile.css';
 const ImgUpload =({onChange,src})=>
 <label htmlFor="photo-upload" className="custom-file-upload fas">
@@ -11,45 +11,65 @@ const ImgUpload =({onChange,src})=>
   const nameText = localStorage.getItem("name");
   const passText = localStorage.getItem("pass");
   const emailText = localStorage.getItem("email");
+  const all_plantText = localStorage.getItem("all_plant");
+  const kill_plantText = localStorage.getItem("kill_plant");
 
-  const [toggle, setToggle]
+  console.log("all_plantText ", all_plantText)
+
+  // var [toggle, setToggle] = React.useState(true);
+  // var [text, setText] = React.useState(nameText);
+
+  // function toggleInput(){
+  //   setToggle(false);
+  // }
+
+  // function handleChange(event) {
+  //   setText(event.target.value);
+  // }
+  
 
 
   const Name =({onChange,value})=>
-  
+   
     <div className="field">
       <label htmlFor="name"> name: </label>
-
-      {/* <h3>{nameText}</h3> */}
+      {/* {toggle ? (<p onDoubleClick={toggleInput}> {text}</p>) : (<input type="text" value= {text} onChange={handleChange}/>)} */}
+      <h3>{nameText}</h3>
       {/* <input id="name" type="text" onChange={onChange} maxLength="25" value = "hi"/> */}
     </div>
+  
   
     
   const Status =({onChange, valueColumncar})=>
     <div className="field">
       <label htmlFor="status">PASSWORD:</label>
       <h3>{passText}</h3>
-      <input id="status" type="text" onChange={onChange}  maxLength="35"  required/>
+      {/* <input id="status" type="text" onChange={onChange}  maxLength="35"  required/> */}
     </div>
 
 const Email =({onChange,valueColumncar})=>
 <div className="field">
   <label htmlFor="email">EMAIL</label>
- <h3>{emailText}</h3>
-  <input id="email" type="text" onChange={onChange}  maxLength="35"  required/>
+  <h3>{emailText}</h3>
+  {/* <input id="email" type="text" onChange={onChange}  maxLength="35"  required/> */}
 </div>
 
   const KillCount =({onChange,valueColumncar})=>
     <div className="field">
       <label htmlFor="killcount">Kill Count </label>
-      <input id="killcount" type="text" onChange={onChange}  maxLength="35"  required/>
+      <h3>{kill_plantText}</h3>
+      {console.log(kill_plantText)}
+      {/* <input id="killcount" type="text" onChange={onChange}  maxLength="35"  required/> */}
     </div>
 
     const AllPlant =({onChange,valueColumncar})=>
       <div className="field">
-        <label htmlFor="AllPlant"> All plant:</label>
-        <input  id="AllPlant"  type="text"   onChange={onChange} maxLength="35"   required/>
-      </div>
+        <label htmlFor="AllPlant"> All plant</label>
+        <h3>{all_plantText}</h3>
+        {console.log(all_plantText)}
+        </div>
+        {/* <input  id="AllPlant"  type="text"   onChange={onChange} maxLength="35"   required/> */}
+      
   
   
   const Profile =({
@@ -68,7 +88,7 @@ const Email =({onChange,valueColumncar})=>
         <div className="email">{email}</div>
         <div className="KillCount">{KillCount}</div>
         <div className="AllPlant">{AllPlant}</div>
-        <button type="save" className="edit">Edit Profile </button>
+        {/* <button type="save" className="edit">Edit Profile </button> */}
       </form>
     </div>
        
@@ -77,7 +97,7 @@ const Email =({onChange,valueColumncar})=>
     <div className="card">
       <form onSubmit={onSubmit}>
           {children}
-        <button type="edit" className="save">edit </button>
+        {/* <button type="edit" className="save">edit </button> */}
       </form>
     </div>
   

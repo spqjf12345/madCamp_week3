@@ -6,7 +6,6 @@ import Column from '../Column.jsx';
 import '../style/Home.css';
 import '../style/SetTimer.css';
 import Dialog from "./DoneDialog";
-import Timer from "./Timer";
 import SetTimer from "./SetTimer";
 import Fade from '@material-ui/core/Fade'
 import { CommunicationSpeakerPhone } from "material-ui/svg-icons";
@@ -19,12 +18,7 @@ const Container = styled.div`
 // let flowers = [];
 class Home extends React.Component {
   state = initialData; //initialData는 지금은 따로 파일에서 하드코딩한 상태. 이제 DB에서 어케 부를지 방법을 찾아보자.
-<<<<<<< HEAD
-  
-  
-=======
 
->>>>>>> 40ae80733075616449199be8da24ec2cce0c0ac2
   // 드래그가 시작되면
   onDragStart = (startColumn, provided) => {
     document.body.style.transition = 'background-color 0.2s ease';
@@ -161,7 +155,6 @@ class Home extends React.Component {
       }
       else
       currentFlowersString += (","+theFlower);
-      // console.log(currentFlowersString);
 
       saveFlower(currentFlowersString);
     }

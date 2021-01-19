@@ -1,6 +1,4 @@
 import React from "react";
-// import { MDBContainer, MDBRow, MDBCol } from 'mdbreact';
-// import {Container, Col, Row, Button} from 'react-bootstrap';
 import '../style/MyGarden.css'
 import Grid from "./Grid"
 import TreeList from "./TreeList"
@@ -13,13 +11,11 @@ import Dialog from "./Dialog";
 import MyTree from "./MyTree"
 
 class MyGarden extends React.Component {
+    
     constructor(props) {
         super(props);
         this.state = {
             showDialog: true,
-            itemFriends: ["🌿","🌳", "🌵", "🎄", "🌲","🌴", "🪵", "🍀", "🌱","🎍","🍃","💐","🌷", "🌸", "🌺", "🥀","🌹", "🌼", "🌻","🌞"]
-        
-
         }
     }
     _showDialog() {
@@ -32,23 +28,13 @@ class MyGarden extends React.Component {
 	render() {
 		return (
 			<div className='MyGarden'>
-                
-                {/* <img src = {Ground} className="img-garden"/> */}
                 <div className="img-garden"/>
-				{/* {this._showDialog.bind(this)} */}
-                {/* {this._showItem.bind(this)} */}
-                <Dialog />
-                {/* <Button className='button' onClick={this._showDialog.bind(this)}> Show item </Button> */}
-                {/* <Dialog  show={this.state.showDialog} item = {this.state.item1}/> */}
-                {/* <Dialog  show={this.state.showDialog} item = {this.state.item2}/> */}
-                {/* <Dialog  show={this.state.showDialog} item = {this.state.item4}/>  */}
-           
-         
+                <Dialog />         
 			 </div>
-
 		);
 	}
 } 
+
 export default MyGarden;
     
 
