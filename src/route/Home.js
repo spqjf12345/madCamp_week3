@@ -4,6 +4,7 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from "../initial-data";
 import Column from '../Column.jsx';
 import '../style/Home.css';
+import '../style/SetTimer.css';
 import Dialog from "./DoneDialog";
 import Timer from "./Timer";
 import SetTimer from "./SetTimer";
@@ -16,9 +17,7 @@ const Container = styled.div`
 
 let flowers = [];
 class Home extends React.Component {
-
   state = initialData; //initialData는 지금은 따로 파일에서 하드코딩한 상태. 이제 DB에서 어케 부를지 방법을 찾아보자.
-
 
   // 드래그가 시작되면
   onDragStart = (startColumn, provided) => {
@@ -159,41 +158,43 @@ class Home extends React.Component {
     const year = (currentDate.getMonth() === 11 && currentDate.getDate() > 18) ? currentDate.getFullYear() + 1 : currentDate.getFullYear(); //2021
     return (
       <>
-      <div className="home">
-        <SetTimer
-          toDoIsNotEmpty={this.state.columns["column-1"].taskIds.length}
-          InProgressIsNotEmpty={this.state.columns["column-2"].taskIds.length}
-        />
-      </div>
-      <DragDropContext
-      onDragEnd={this.onDragEnd}
-      onDragStart={this.onDragStart}
-      onDragUpdate={this.onDragUpdate}
-      >
-        <Droppable
-          droppableId="all-columns"
-          direction="horizontal"
-          type="column"
-        >
-          {provided => (
-            <Container
-            {...provided.droppableProps}
-            ref={provided.innerRef}
+      <SetTimer
+        toDoIsNotEmpty={this.state.columns["column-1"].taskIds.length}
+        InProgressIsNotEmpty={this.state.columns["column-2"].taskIds.length}
+      />
+      {/* <div className="home"> */}
+        <div className="toDoContainer">
+          <DragDropContext
+          onDragEnd={this.onDragEnd}
+          onDragStart={this.onDragStart}
+          onDragUpdate={this.onDragUpdate}
+          >
+            <Droppable
+              droppableId="all-columns"
+              direction="horizontal"
+              type="column"
             >
-              {/* <div className="budImageContainer"> */}
-                <img src="https://www.pngrepo.com/png/169302/180/bud.png"/>
-              {/* </div> */}
-              {this.state.columnOrder.map((columnId, index) => {
-                const column = this.state.columns[columnId];
-                const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
-                return <Column key={column.id} column={column} tasks={tasks} index={index} />;
-              })}
-              {provided.placeholder}
-              
-            </Container>
-          )}
-        </Droppable>
-      </DragDropContext>
+              {provided => (
+                <Container
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+                >
+                  {this.state.columnOrder.map((columnId, index) => {
+                    const column = this.state.columns[columnId];
+                    const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
+                    return <Column key={column.id} column={column} tasks={tasks} index={index} />;
+                  })}
+                  {provided.placeholder}
+                  
+                </Container>
+              )}
+            </Droppable>
+          </DragDropContext>
+        </div>
+        <div className="budImageContainer">
+          <img src="https://www.pngrepo.com/png/169302/180/bud.png"/>
+        </div>
+      {/* </div> */}
       </>
     );
   }
