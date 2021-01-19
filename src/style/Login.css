@@ -1,7 +1,14 @@
 .login{
     margin: auto;
-    margin-top: 5em;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    padding: 15em;
+  
 }
+
+.password-sm{
+    margin-left:16cm;
+    margin-right:16cm;
+}
+

@@ -10,13 +10,13 @@ class SignUp extends React.Component {
 
     constructor(props){
         super(props)
-        this.state = {name: "hello"};
+        // this.state = {name: "hello"};
     }
 
     render(){
     return (
         <MuiThemeProvider>
-            {this.props.children}
+            {/* {this.props.children} */}
             <SignUpContainer/>
         </MuiThemeProvider>
     );
