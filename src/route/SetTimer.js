@@ -27,6 +27,13 @@ class SetTimer extends Component {
 
   startTimer = () => {
     this.timer = setInterval(this.countDown, 1000);
+    // 인풋에 적은 숫자 지우기
+    const hoursInput = document.querySelector("input[name=hours]");
+    const minutesInput = document.querySelector("input[name=minutes]");
+    const secondsInput = document.querySelector("input[name=seconds]");
+    hoursInput.value="";
+    minutesInput.value="";
+    secondsInput.value="";
   }
 
 
@@ -68,6 +75,14 @@ class SetTimer extends Component {
 
   stopTimer = () => {
     clearInterval(this.timer);
+    // alert(`꽃이 죽었어요ㅠㅠ`);
+    // 인풋에 적은 숫자 지우기
+    const hoursInput = document.querySelector("input[name=hours]");
+    const minutesInput = document.querySelector("input[name=minutes]");
+    const secondsInput = document.querySelector("input[name=seconds]");
+    hoursInput.value="";
+    minutesInput.value="";
+    secondsInput.value="";
   }
 
   resetTimer = () => {
@@ -76,9 +91,9 @@ class SetTimer extends Component {
       minutes: 0,
       seconds: 0
     });
-    this.hoursInput.current.value = 0;
-    this.minutesInput.current.value = 0;
-    this.secondsInput.current.value = 0;
+    this.hoursInput.current.value = "";
+    this.minutesInput.current.value = "";
+    this.secondsInput.current.value = "";
   }
 
   render() {
@@ -86,23 +101,22 @@ class SetTimer extends Component {
 
     return (
       <div className="SetTimer">
-        <h1 className="timer-title"> Timer</h1>
+        <h1>TIMER</h1>
 
-        <label for="hours">Hour: </label>
-        <input ref={this.hoursInput} type="number" class ="form-control input-lg" placeholder={"set the hour"}  name="hours" onChange={this.inputHandler} />
-        
-        <label for="minutes">Min:   </label>
-        <input ref={this.minutesInput} type="number" class ="form-control input-lg" placeholder={"set the minutes"}   name="minutes"  onChange={this.inputHandler} />
-        
-        <label for="seconds">Sec:   </label>
-        <input ref={this.secondsInput} type="number" class ="form-control input-lg" placeholder={"set the seconds"}  name="seconds"  onChange={this.inputHandler} />
+        <div>
+          <input ref={this.hoursInput} type="number" className="form-control input-lg" placeholder={"시를 입력하세요"} name="hours" onChange={this.inputHandler} />
+          <input ref={this.minutesInput} type="number" className="form-control input-lg" placeholder={"분을 입력하세요"} name="minutes" onChange={this.inputHandler} />
+          <input ref={this.secondsInput} type="number" className="form-control input-lg" placeholder={"초를 입력하세요"} name="seconds" onChange={this.inputHandler} />
+        </div>
         
          <div>
-            <button onClick={this.startTimer} className="start">start</button>
-            <button onClick={this.stopTimer}  className="stop">stop</button>
-            <button onClick={this.resetTimer}  className="reset">reset</button>
+            <button onClick={this.startTimer} className="startBtn">START</button>
+            <button onClick={this.stopTimer}  className="stopBtn">STOP</button>
+            <button onClick={this.resetTimer}  className="resetBtn">RESET</button>
          </div>
-         <h2 className = "timer-settimer"> Timer {hours}: {minutes} : {seconds} </h2>
+
+         <h3 className="timer-settimer">남은 시간</h3>
+         <h2>{hours<10? `0${hours}` : hours} : {minutes<10? `0${minutes}` : minutes} : {seconds<10? `0${seconds}` : seconds}</h2>
       </div>
 
     );
