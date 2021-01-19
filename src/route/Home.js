@@ -18,6 +18,7 @@ class Home extends React.Component {
 
   state = initialData; //initialData는 지금은 따로 파일에서 하드코딩한 상태. 이제 DB에서 어케 부를지 방법을 찾아보자.
 
+
   // 드래그가 시작되면
   onDragStart = (startColumn, provided) => {
     document.body.style.transition = 'background-color 0.2s ease';
@@ -121,16 +122,31 @@ class Home extends React.Component {
     console.log("Todo is "+newState.columns["column-1"].taskIds);
     console.log("In Progress is "+newState.columns["column-2"].taskIds);
     
-    // 6. Task가 Column 너머 옮겨졌을 때, 이제 더이상 To-do, In Progress Column에 아무 것도 없을 경우
+    // 6. Task가 Column 너머 옮겨졌을 때, 이제 더이상 To-do, In Progress Column에 아무 것도 없을 경우(즉 전부 Done칼럼으로 옮겨졌을 경우)
     const toDoIsNotEmpty = newState.columns["column-1"].taskIds.length;
     const InProgressIsNotEmpty = newState.columns["column-2"].taskIds.length;
-    const flowers = ["🌹","🌺","🌻","🌼","🌷","🍀","🌵"];
+    const FLOWERS = ["🌹","🌺","🌻","🌼","🌷","🍀","🌵"];
     const FLOWER_COUNT = 7;
+    const LS_KEY_FLOWERS = "flowers";
+    let flowers = [];
 
     if (!toDoIsNotEmpty && !InProgressIsNotEmpty) {
       const randomIndex = Math.floor(Math.random() * FLOWER_COUNT);
-      console.log("is empty");
-      alert(`Congratulations!\nYou've got your Flower:\n${flowers[randomIndex]}`);
+      const theFlower = FLOWERS[randomIndex];
+      alert(`Congratulations!\nYou've got your Flower:\n${theFlower}`);
+
+      const currentArray = getFlower();
+      if (!currentArray){
+        flowers.push(theFlower)
+        console.log(flowers);
+      }
+      saveFlower(theFlower);
+    }
+    function getFlower(){
+      return localStorage.getItem(LS_KEY_FLOWERS);
+    }
+    function saveFlower(theFlower){
+      localStorage.setItem(LS_KEY_FLOWERS, theFlower);
     }
 
     // TODO: 그리고 이렇게 reorder된 index값들을 디비에 저장해야 refresh했을 때도 유지될 수 있는데, 어떻게 하지?
@@ -140,16 +156,12 @@ class Home extends React.Component {
   render() {
     const currentDate = new Date();
     const year = (currentDate.getMonth() === 11 && currentDate.getDate() > 18) ? currentDate.getFullYear() + 1 : currentDate.getFullYear(); //2021
-  
     return (
 
-      <div className = "home">
-        <SetTimer />
-       
       <DragDropContext
-        onDragEnd={this.onDragEnd}
-        onDragStart={this.onDragStart}
-        onDragUpdate={this.onDragUpdate}
+      onDragEnd={this.onDragEnd}
+      onDragStart={this.onDragStart}
+      onDragUpdate={this.onDragUpdate}
       >
         <Droppable
           droppableId="all-columns"
@@ -158,9 +170,13 @@ class Home extends React.Component {
         >
           {provided => (
             <Container
-              {...provided.droppableProps}
-              ref={provided.innerRef}
+            {...provided.droppableProps}
+            ref={provided.innerRef}
             >
+              <SetTimer />
+              {/* <div className="budImageContainer"> */}
+                <img src="https://www.pngrepo.com/png/169302/180/bud.png"/>
+              {/* </div> */}
               {this.state.columnOrder.map((columnId, index) => {
                 const column = this.state.columns[columnId];
                 const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
@@ -172,7 +188,6 @@ class Home extends React.Component {
           )}
         </Droppable>
       </DragDropContext>
-      </div>
     );
   }
 }

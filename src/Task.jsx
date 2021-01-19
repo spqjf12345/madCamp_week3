@@ -101,9 +101,11 @@ export default class Task extends React.Component {
                   isDragging={snapshot.isDragging}
                   isDragDisabled={isDragDisabled}
                >
-                  {this.props.task.content}
-				  {<button onClick={onClickEditHandler}>Edit</button>}
-// 				  {<button onClick={onClickDeleteHandler}>Delete</button>}
+                  <div>
+                     {this.props.task.content}
+                  </div>
+                  {<button onClick={onClickEditHandler}>Edit</button>}
+                  {<button onClick={onClickDeleteHandler}>Delete</button>}
                </Container>
             )}
          </Draggable>

@@ -71,9 +71,9 @@ export default class Column extends React.Component {
 									isDraggingOver={snapshot.isDraggingOver}>
 									{/* task 수정 필요 */}
 									{this.state.showComponent ? <Task key={this.state.key} task={""} index={this.state.indexTask}/> : null}
-									{console.log(`showComponent is ${this.state.showComponent}`)}
+									{/* {console.log(`showComponent is ${this.state.showComponent}`)}
 									{console.log(`key is ${this.state.key}`)}
-									{console.log(`indexTask is ${this.state.indexTask}`)}
+									{console.log(`indexTask is ${this.state.indexTask}`)} */}
 									
 									{this.props.tasks.map((task, index) => (
 										<Task key={task.id} task={task} index={index} />
