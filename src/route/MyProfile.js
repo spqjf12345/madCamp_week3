@@ -13,19 +13,6 @@ const ImgUpload =({onChange,src})=>
   const emailText = localStorage.getItem("email");
   const all_plantText = localStorage.getItem("all_plant");
   const kill_plantText = localStorage.getItem("kill_plant");
-
-  console.log("all_plantText ", all_plantText)
-
-  // var [toggle, setToggle] = React.useState(true);
-  // var [text, setText] = React.useState(nameText);
-
-  // function toggleInput(){
-  //   setToggle(false);
-  // }
-
-  // function handleChange(event) {
-  //   setText(event.target.value);
-  // }
   
 
 

@@ -104,7 +104,7 @@ class SetTimer extends Component {
 
     return (
       <div className="SetTimer">
-        <h1>TIMER</h1>
+        <h3>TIMER</h3>
 
         <div>
           <input ref={this.hoursInput} type="number" className="form-control input-lg" placeholder={"시를 입력하세요"} name="hours" onChange={this.inputHandler} />
@@ -118,10 +118,9 @@ class SetTimer extends Component {
             <button onClick={this.resetTimer}  className="resetBtn">RESET</button>
          </div>
 
-         <h3 className="timer-settimer">남은 시간</h3>
+         <h4 className="timer-settimer">남은 시간</h4>
          <h2>{hours<10? `0${hours}` : hours} : {minutes<10? `0${minutes}` : minutes} : {seconds<10? `0${seconds}` : seconds}</h2>
       </div>
-
     );
   }
 }

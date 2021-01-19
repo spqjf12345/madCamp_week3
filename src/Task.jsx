@@ -34,7 +34,8 @@ function onClickDeleteHandler(e) {
 			onClick: () => alert("click no")
 		}
 	]
-	});
+	}
+	);
 
 	//alert("삭제하시겠습니까?")
 }
