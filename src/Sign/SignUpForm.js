@@ -10,7 +10,7 @@ const SignUpForm = ({history, onSubmit, onChange, errors, user, score, btnTxt, t
   return (
     <div className="loginBox">
       <h1>Sign Up</h1>
-      {errors.message && <p style={{ color: "red" }}>{errors.message}</p>}
+      {/* {errors.message && <p style={{ color: "red" }}>{errors.message}</p>} */}
 
       <form onSubmit={onSubmit}>
         <TextField name="username" floatingLabelText="user name" value={user.username} onChange={onChange} errorText={errors.username}>

@@ -1,10 +1,4 @@
 .Dialog {
-    /* width: 20px; */
-    /* height: 20px; */
-    /* background-image: "🤢"; */
-    /* background-color: rgb(244, 246, 247);  */
-    /* border-radius: 10px;  */
-    /* border: 3px solid rgb(0, 0, 0); */
     position: absolute;
     cursor: move;
     top: 150px;
@@ -12,29 +6,24 @@
 }
 
 .Dialog1 {
-    /* width: 20px; */
-    /* height: 20px; */
-    /* background-image: "🤢"; */
-    /* background-color: rgb(244, 246, 247);  */
-    /* border-radius: 10px;  */
-    /* border: 3px solid rgb(0, 0, 0); */
     position: absolute;
     cursor: move;
-    top: 200px;
-    left: 520px;
+    top: 150px;
+    left: 550px;
 }
 
 .Dialog2 {
-    /* width: 20px; */
-    /* height: 20px; */
-    /* background-image: "🤢"; */
-    /* background-color: rgb(244, 246, 247);  */
-    /* border-radius: 10px;  */
-    /* border: 3px solid rgb(0, 0, 0); */
     position: absolute;
     cursor: move;
     top: 250px;
-    left: 520px;
+    left: 600px;
+}
+
+.Dialog3 {
+    position: absolute;
+    cursor: move;
+    top: 250px;
+    left: 650px;
 }
 
 .hidden {

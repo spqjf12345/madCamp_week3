@@ -5,38 +5,42 @@ export default class Dialog extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            diffX: 0,
-            diffY: 0,
+            x: 0,
+            y: 0,
             dragging: false,
-            styles: {},
+            stylesList: [],
         }
+
         this._dragStart = this._dragStart.bind(this);
         this._dragging = this._dragging.bind(this);
         this._dragEnd = this._dragEnd.bind(this);
     }
 
-    _dragStart(e) {
+    _dragStart(e, i) {
         console.log("_dragStart")
         this.setState({
-            diffX: e.screenX - e.currentTarget.getBoundingClientRect().left,
-            diffY: e.screenY - e.currentTarget.getBoundingClientRect().top,
+            x: e.screenX - e.currentTarget.getBoundingClientRect().left,
+            y: e.screenY - e.currentTarget.getBoundingClientRect().top,
             dragging: true
         });
     }
 
-    _dragging(e) {
+    _dragging(e, i) {
         console.log("_dragging")
         if (this.state.dragging) {
-            var left = e.screenX - this.state.diffX;
-            var top = e.screenY - this.state.diffY;
+            var left = e.screenX - this.state.x;
+            var top = e.screenY - this.state.y;
             console.log(left, top);
+
+            const stylesList = this.state.stylesList;
+            stylesList[i] = { left: left, top: top };
             this.setState({
-                styles: { left: left, top: top }
+                stylesList: stylesList
             });
         }
     }
 
-    _dragEnd(e) {
+    _dragEnd(e, i) {
         console.log("_dragEnd")
         console.log(e)
 
@@ -44,31 +48,38 @@ export default class Dialog extends Component {
             dragging: false
         });
     }
-
+    
     //var classes = this.props.show ? 'Dialog' : 'Dialog hidden';
     //var items = this.props.item;
     // console.log("items", this.props.item);
     render() {
         const theFlower = localStorage.getItem("flowers");
-        // const itemFriends= ["🎄", "🎈", "🎃"]
+        console.log(theFlower);
+        let flowerArray;
+        if(theFlower != null){
+            flowerArray = theFlower.split(",");
+            console.log(flowerArray);
+        }else {
+            flowerArray = [];
+        }
         return (
             <div>
-                <div className={"Dialog"} style={this.state.styles}
-                    onMouseDown={this._dragStart}
-                    onMouseMove={this._dragging}
-                    onMouseUp={this._dragEnd}
-                > {theFlower}
-                    {/* {this.props.itemFriends.map((item) => <p>{item}</p>)} */}
-                </div>
+                {flowerArray.map((item, idx) =>
+                    <div className={"Dialog"} style={this.state.stylesList[idx]}
+                    onMouseDown={(e) => this._dragStart(e, idx)}
+                    onMouseMove={(e) => this._dragging(e, idx)}
+                    onMouseUp={(e) => this._dragEnd(e, idx)}>
+                        {item}
+                        {/* {this.props.itemFriends.map((item) => <p>{item}</p>)} */}
+                    </div>
+                )}
 
-                <div className={"Dialog1"} style={this.state.styles}
-                    onMouseDown={this._dragStart}
-                    // onMouseMove={this._dragging}
-                    onMouseUp={this._dragEnd}
-                    onMouseLeave={this._dragEnd} onMouseMove={this._dragging}
-                >
-                    {/* {this.props.itemFriends.map((item) => <p>{item}</p>)} */}
-                </div>
+                {/* <div className={"Dialog1"}> 🎈</div>
+            <div className={"Dialog2"}> 🌻</div>
+            <div className={"Dialog3"}> 🍀</div>
+            <div className={"Dialog4"}> 🌵</div>
+            <div className={"Dialog5"}> 🌿</div>
+            <div className={"Dialog6"}> 🌳</div> */}
             </div>
         );
     }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from "../initial-data";
@@ -8,6 +8,7 @@ import '../style/SetTimer.css';
 import Dialog from "./DoneDialog";
 import Timer from "./Timer";
 import SetTimer from "./SetTimer";
+import Fade from '@material-ui/core/Fade'
 import { CommunicationSpeakerPhone } from "material-ui/svg-icons";
 
 // Styles
@@ -15,7 +16,7 @@ const Container = styled.div`
   display: flex;
 `;
 
-let flowers = [];
+// let flowers = [];
 class Home extends React.Component {
   state = initialData; //initialData는 지금은 따로 파일에서 하드코딩한 상태. 이제 DB에서 어케 부를지 방법을 찾아보자.
 
@@ -33,10 +34,8 @@ class Home extends React.Component {
   }
   //딱 드롭했을 때가 되면
   onDragEnd = result => {
-    console.log(result);
     document.body.style.color = 'inherit';
     document.body.style.backgroundColor = 'inherit';
-
     const { destination, source, draggableId, type } = result;
 
     // Task가 옮겨졌을 때 처리하기
@@ -49,10 +48,27 @@ class Home extends React.Component {
     ) {
       return;
     }
+
     // 3. Task가 Done 칼럼으로 옮겨졌을 경우
     if (destination.droppableId === 'column-3') {
+
+      const item = "🌞";
       this.state.tasks[draggableId].isDone = true; // 해당 Task를 disableDraggable 한다
+      //showItem(item);
     }
+    // showItem(item)=() =>{
+    //   <div>
+    //   <Fade in={true} timeout={4000}>
+    //     <p>True Component</p>
+    //   </Fade>
+
+    //   <Fade in={false} timeout={4000}>
+    //     <p>False Component</p>
+    //   </Fade>
+    //   </div>
+    //   // return <Fade className="fade-in" timeout = {2000}> itemcreate {console.log("fade in")} </Fade>
+    // }
+
 
     // 여기서 잠깐... Column 자체가 옮겨졌을 때 처리하기
     if (type === 'column') {
@@ -134,19 +150,22 @@ class Home extends React.Component {
       const theFlower = FLOWERS[randomIndex];
       alert(`Congratulations!\nYou've got your Flower:\n${theFlower}`);
 
-      const currentArray = getFlower();
-      if (!currentArray){
-        flowers.push(theFlower)
-        console.log(flowers);
+      let currentFlowersString = getFlower();
+      if (!currentFlowersString){ // local에 아무것도 없음
+        currentFlowersString = theFlower;
       }
-      saveFlower(theFlower);
+      else
+      currentFlowersString += (","+theFlower);
+      // console.log(currentFlowersString);
+
+      saveFlower(currentFlowersString);
     }
     function getFlower(){
       return localStorage.getItem(LS_KEY_FLOWERS);
     }
-    function saveFlower(theFlower){
+    function saveFlower(flowers){
       
-      localStorage.setItem(LS_KEY_FLOWERS, theFlower);
+      localStorage.setItem(LS_KEY_FLOWERS, flowers);
     }
 
     // TODO: 그리고 이렇게 reorder된 index값들을 디비에 저장해야 refresh했을 때도 유지될 수 있는데, 어떻게 하지?
@@ -154,8 +173,6 @@ class Home extends React.Component {
   };
 
   render() {
-    const currentDate = new Date();
-    const year = (currentDate.getMonth() === 11 && currentDate.getDate() > 18) ? currentDate.getFullYear() + 1 : currentDate.getFullYear(); //2021
     return (
       <>
       <SetTimer

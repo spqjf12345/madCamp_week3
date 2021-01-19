@@ -1,5 +1,7 @@
+import { ImageExposureZero } from 'material-ui/svg-icons';
 import React, { Component } from 'react';
 import '../style/SetTimer.css';
+import Home from "./Home";
 
 class SetTimer extends Component {
   constructor() {
@@ -7,7 +9,8 @@ class SetTimer extends Component {
     this.state = {
       hours: 0,
       minutes: 0,
-      seconds:0
+      seconds:0,
+      isZero: false
     }
     this.hoursInput = React.createRef();
     this.minutesInput= React.createRef();
@@ -33,6 +36,7 @@ class SetTimer extends Component {
     secondsInput.value="";
   }
 
+
   countDown = () => {
     const  { hours, minutes, seconds } = this.state;
     let c_seconds = this.convertToSeconds(hours, minutes, seconds);
@@ -43,7 +47,7 @@ class SetTimer extends Component {
         alert(`시간 내에 할일을 다 못하셨군요... 꽃이 죽었어요ㅠㅠ`)
       }
     }
-
+    
     if(c_seconds) {
 
       // seconds change

@@ -3,8 +3,7 @@ import {InputGroup, Form, Button} from "react-bootstrap"
 import "../style/Login.css"
 
 class Login extends React.Component{
-
-    
+   
        state = {
             name:"",
             pass:"",
@@ -14,10 +13,14 @@ class Login extends React.Component{
     
     
     onSubmit = () =>{
-        // console.log("onSubmit");
-        // const name_ = this.state.name;
-        // const pass_ = this.state.pass;
-        // const email_ = this.state.email;
+        const LS_KEY_NAME = "name";
+        const LS_KEY_PASS = "pass";
+        const LS_KEY_EMAIL = "email";
+     
+        localStorage.setItem(LS_KEY_NAME,this.state.name)
+        localStorage.setItem(LS_KEY_PASS,this.state.pass)
+        localStorage.setItem(LS_KEY_EMAIL,this.state.email)
+
         console.log(this.state.name);
         console.log(this.state.pass);
         console.log(this.state.email);
@@ -34,7 +37,7 @@ class Login extends React.Component{
                 <Form.Control className="textFeedback"  placeholder="enter the pass" value={this.state.pass} onChange={e => this.setState({ pass: e.target.value })} type="text"/>
                 <InputGroup.Text id="inputGroup-sizing-lg" placeholder="enter the name" >email  </InputGroup.Text> 
                 <Form.Control className="textFeedback" placeholder="enter the email" value={this.state.email} onChange={e => this.setState({ email: e.target.value })} type="text"/>
-                <Button variant="dark" onClick ={this.onSubmit}>submit</Button>
+                <Button variant="dark" onClick ={this.onSubmit} href='/'>submit</Button>
             </Form.Group>
            
 
