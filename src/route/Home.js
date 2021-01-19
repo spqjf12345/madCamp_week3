@@ -14,6 +14,7 @@ const Container = styled.div`
   display: flex;
 `;
 
+let flowers = [];
 class Home extends React.Component {
 
   state = initialData; //initialData는 지금은 따로 파일에서 하드코딩한 상태. 이제 DB에서 어케 부를지 방법을 찾아보자.
@@ -128,7 +129,6 @@ class Home extends React.Component {
     const FLOWERS = ["🌹","🌺","🌻","🌼","🌷","🍀","🌵"];
     const FLOWER_COUNT = 7;
     const LS_KEY_FLOWERS = "flowers";
-    let flowers = [];
 
     if (!toDoIsNotEmpty && !InProgressIsNotEmpty) {
       const randomIndex = Math.floor(Math.random() * FLOWER_COUNT);
@@ -159,8 +159,11 @@ class Home extends React.Component {
     const year = (currentDate.getMonth() === 11 && currentDate.getDate() > 18) ? currentDate.getFullYear() + 1 : currentDate.getFullYear(); //2021
     return (
       <>
-      <div className = "home">
-        <SetTimer />
+      <div className="home">
+        <SetTimer
+          toDoIsNotEmpty={this.state.columns["column-1"].taskIds.length}
+          InProgressIsNotEmpty={this.state.columns["column-2"].taskIds.length}
+        />
       </div>
       <DragDropContext
       onDragEnd={this.onDragEnd}

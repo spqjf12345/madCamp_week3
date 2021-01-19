@@ -29,10 +29,13 @@ class SetTimer extends Component {
   countDown = () => {
     const  { hours, minutes, seconds } = this.state;
     let c_seconds = this.convertToSeconds(hours, minutes, seconds);
-    if ( hours === 0 &&  minutes === 0 & seconds === 0){
-        //time over
-        alert("시간이 종료되었습니다. 당신의 꽃은 죽었습니다")
-        //delete every board from Task.jsx
+    if ( hours === 0 &&  minutes === 0 & seconds === 0){ //time over
+      if (!this.props.toDoIsNotEmpty && !this.props.InProgressIsNotEmpty){
+        this.stopTimer()
+      } else {
+        alert(`시간이 종료되었습니다. 당신의 꽃은 죽었습니다`)
+      }
+      //delete every board from Task.jsx
     }
 
     if(c_seconds) {
