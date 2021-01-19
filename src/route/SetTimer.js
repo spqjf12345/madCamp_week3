@@ -1,5 +1,7 @@
+import { ImageExposureZero } from 'material-ui/svg-icons';
 import React, { Component } from 'react';
 import '../style/SetTimer.css';
+import Home from "./Home";
 
 class SetTimer extends Component {
   constructor() {
@@ -7,7 +9,8 @@ class SetTimer extends Component {
     this.state = {
       hours: 0,
       minutes: 0,
-      seconds:0
+      seconds:0,
+      isZero: false
     }
     this.hoursInput = React.createRef();
     this.minutesInput= React.createRef();
@@ -26,15 +29,16 @@ class SetTimer extends Component {
     this.timer = setInterval(this.countDown, 1000);
   }
 
+
   countDown = () => {
     const  { hours, minutes, seconds } = this.state;
     let c_seconds = this.convertToSeconds(hours, minutes, seconds);
-    if ( hours === 0 &&  minutes === 0 & seconds === 0){
-        //time over
-        alert("시간이 종료되었습니다. 당신의 꽃은 죽었습니다")
-        //delete every board from Task.jsx
-    }
 
+    if ( hours === 0 &&  minutes === 0 & seconds === 0){  
+      alert("시간이 종료되었습니다. 당신의 꽃은 죽었습니다")
+      this.setState({isZero: true});
+    
+    }
     if(c_seconds) {
 
       // seconds change

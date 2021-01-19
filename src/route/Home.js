@@ -50,7 +50,11 @@ class Home extends React.Component {
     }
     // 3. Task가 Done 칼럼으로 옮겨졌을 경우
     if (destination.droppableId === 'column-3') {
+      //get item showging 
+      const item = "🌞"
+      
       this.state.tasks[draggableId].isDone = true; // 해당 Task를 disableDraggable 한다
+
     }
 
     // 여기서 잠깐... Column 자체가 옮겨졌을 때 처리하기
@@ -139,7 +143,7 @@ class Home extends React.Component {
 
   render() {
     const currentDate = new Date();
-    const year = (currentDate.getMonth() === 11 && currentDate.getDate() > 18) ? currentDate.getFullYear() + 1 : currentDate.getFullYear(); //2021
+    // const year = (currentDate.getMonth() === 11 && currentDate.getDate() > 18) ? currentDate.getFullYear() + 1 : currentDate.getFullYear(); //2021
   
     return (
 

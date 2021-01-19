@@ -1,10 +1,8 @@
-import React, { PropTypes, Component } from 'react';
+import React from 'react';
 class Timer extends React.Component {
     constructor(props) {
       super(props);
-  
       this.state = {
-        days: 0,
         hours: 0,
         min: 0,
         sec: 0,
@@ -12,7 +10,6 @@ class Timer extends React.Component {
     }
 
     componentDidMount() {
-        // update every second
         this.interval = setInterval(() => {
           const date = this.calculateCountdown(this.props.date);
           date ? this.setState(date) : this.stop();
@@ -25,10 +22,7 @@ class Timer extends React.Component {
 
       calculateCountdown(endDate) {
         let diff = (Date.parse(new Date(endDate)) - Date.parse(new Date())) / 1000;
-        console.log(new Date(endDate));
-        console.log(Date.parse(new Date(endDate)));
-        console.log("diff", diff);
-    
+
         // clear countdown when date is reached
         if (diff <= 0) return false;
     
@@ -59,7 +53,6 @@ class Timer extends React.Component {
           diff -= timeLeft.min * 60;
         }
         timeLeft.sec = diff;
-    
         return timeLeft;
       }
 
@@ -82,18 +75,10 @@ class Timer extends React.Component {
           <div className="Countdown">
             <span className="Countdown-col">
               <span className="Countdown-col-element">
-                  <strong>{this.addLeadingZeros(Timer.days)}</strong>
-                  <span>{Timer.days === 1 ? 'Day' : 'Days'}</span>
-              </span>
-            </span>
-    
-            <span className="Countdown-col">
-              <span className="Countdown-col-element">
                 <strong>{this.addLeadingZeros(Timer.hours)}</strong>
                 <span>Hours</span>
               </span>
             </span>
-    
     
             <span className="Countdown-col">
               <span className="Countdown-col-element">
@@ -112,14 +97,6 @@ class Timer extends React.Component {
         );
       }
     }
-    
-    // Timer.PropTypes = {
-    //   date: PropTypes.String.isRequired
-    // };
-    
-    // Timer.defaultProps = {
-    //   date: new Date()
-    // };
     
     export default Timer;
 

@@ -19,12 +19,11 @@ class App extends React.Component {
     <Router>
       <Navbar />
       <Switch>
-        <Route path='/signup' exact component={SignUp} />
+        <Route path='/signup' component={SignUp} />
         <Route path='/login' exact component={Login} />
-        <Route path='/' exact component={Home} />
+        <Route path='/' component={Home} />
         <Route path='/Profile' component={MyProfile} />
         <Route path='/MyGarden' component={MyGarden} />
-        {/* <Route path='/timer' component={Timer} /> */}
       </Switch>
     </Router>
   );

@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import '../style/Dialog.css';
-
+//속성 값과 함수를 같이 써서 문제가 되는 듯하다
 export default class Dialog extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            diffX: 0,
-            diffY: 0,
+            x: 0,
+            y: 0,
             dragging: false,
-            styles: {},
-            
+            styles1: {},
         }
-
+       
         this._dragStart = this._dragStart.bind(this);
         this._dragging = this._dragging.bind(this);
         this._dragEnd = this._dragEnd.bind(this);
@@ -20,8 +19,8 @@ export default class Dialog extends Component {
     _dragStart(e) {
         console.log("_dragStart")
         this.setState({
-            diffX: e.screenX - e.currentTarget.getBoundingClientRect().left,
-            diffY: e.screenY - e.currentTarget.getBoundingClientRect().top,
+            x: e.screenX - e.currentTarget.getBoundingClientRect().left,
+            y: e.screenY - e.currentTarget.getBoundingClientRect().top,
             dragging: true
         });
     }
@@ -44,31 +43,23 @@ export default class Dialog extends Component {
         });
     }
 
-    //var classes = this.props.show ? 'Dialog' : 'Dialog hidden';
-    //var items = this.props.item;
-    // console.log("items", this.props.item);
     render(){
-        const a = "🎄"
-        // const itemFriends= ["🎄", "🎈", "🎃"]
         return (
            <div>
+               
             <div className={"Dialog"} style={this.state.styles}
                     onMouseDown={this._dragStart}
-                    // onMouseMove={this._dragging}
+                    onMouseMove={this._dragging}
                     onMouseUp={this._dragEnd}
-                    onMouseLeave={this._dragEnd}
-                > 🎄
-                 {/* {this.props.itemFriends.map((item) => <p>{item}</p>)} */}
-              </div>
+                    onMouseLeave={this._dragEnd}> 🎄 </div>
 
-            <div className={"Dialog1"} style={this.state.styles}
-            onMouseDown={this._dragStart}
-            // onMouseMove={this._dragging}
-            onMouseUp={this._dragEnd}
-            onMouseLeave={this._dragEnd} onMouseMove ={this._dragging}
-            > 🎈
-            {/* {this.props.itemFriends.map((item) => <p>{item}</p>)} */}
-            </div>
+            <div className={"Dialog1"}> 🎈</div>
+            <div className={"Dialog2"}> 🌻</div>
+            <div className={"Dialog3"}> 🍀</div>
+            <div className={"Dialog4"}> 🌵</div>
+            <div className={"Dialog5"}> 🌿</div>
+            <div className={"Dialog6"}> 🌳</div>
+
             </div>
             );
         }
