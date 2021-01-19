@@ -39,7 +39,7 @@ export default class Column extends React.Component {
 	}
 	handleClick(){
 		//add 버튼 클릭 시 수행 되어야 할 일
-		console.log("button click")
+		// console.log("button click")
 		this.setState({
 	
 			key: this.state.key+1,

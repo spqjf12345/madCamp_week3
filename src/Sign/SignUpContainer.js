@@ -97,6 +97,10 @@ class SignUpContainer extends React.Component {
         pw: this.state.user.password,
         email: this.state.user.email
       };
+      console.log("ok")
+      console.log(this.state.user.username);
+      console.log(this.state.user.password);
+      console.log(this.state.user.email);
       this.submitSignup(user);
     }
      else {
