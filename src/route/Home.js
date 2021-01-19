@@ -146,6 +146,7 @@ class Home extends React.Component {
       return localStorage.getItem(LS_KEY_FLOWERS);
     }
     function saveFlower(theFlower){
+      
       localStorage.setItem(LS_KEY_FLOWERS, theFlower);
     }
 
