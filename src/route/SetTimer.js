@@ -10,7 +10,7 @@ class SetTimer extends Component {
       hours: 0,
       minutes: 0,
       seconds:0,
-      isZero: false
+      killCout:0
     }
     this.hoursInput = React.createRef();
     this.minutesInput= React.createRef();
@@ -44,8 +44,12 @@ class SetTimer extends Component {
       this.stopTimer();
     } else { // 할일 다 안했으면
       if ( hours === 0 &&  minutes === 0 & seconds === 0){ // time over
+        this.state.killCout +=1;
+        console.log(this.state.killCout);
         alert(`시간 내에 할일을 다 못하셨군요... 꽃이 죽었어요ㅠㅠ`)
       }
+      const LS_KEY_KILL_PLANT = "kill_plant"
+      localStorage.setItem(LS_KEY_KILL_PLANT, this.state.killCout);
     }
     
     if(c_seconds) {
@@ -75,8 +79,6 @@ class SetTimer extends Component {
 
   stopTimer = () => {
     clearInterval(this.timer);
-    // alert(`꽃이 죽었어요ㅠㅠ`);
-    // 인풋에 적은 숫자 지우기
     const hoursInput = document.querySelector("input[name=hours]");
     const minutesInput = document.querySelector("input[name=minutes]");
     const secondsInput = document.querySelector("input[name=seconds]");
@@ -95,6 +97,7 @@ class SetTimer extends Component {
     this.minutesInput.current.value = "";
     this.secondsInput.current.value = "";
   }
+
 
   render() {
     const { hours, minutes, seconds } = this.state;

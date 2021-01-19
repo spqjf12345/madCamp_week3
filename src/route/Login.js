@@ -29,9 +29,9 @@ class Login extends React.Component{
         localStorage.setItem(LS_KEY_PASS,this.state.pass)
         localStorage.setItem(LS_KEY_EMAIL,this.state.email)
 
-        console.log(this.state.name);
-        console.log(this.state.pass);
-        console.log(this.state.email);
+        // console.log(this.state.name);
+        // console.log(this.state.pass);
+        // console.log(this.state.email);
     }
     
     
@@ -61,25 +61,6 @@ class Login extends React.Component{
                 <Button variant="secondary" href='/' onClick ={this.onSubmit}>submit</Button>{' '}
             </Form.Group>
             </div>
-           
-
-            // <InputGroup size="lg" className ="login">
-            //     <InputGroup.Prepend>
-            //     <InputGroup.Text id="inputGroup-sizing-lg" placeholder="enter the name" >NAME</InputGroup.Text>
-            //     </InputGroup.Prepend>
-            //     <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" type = "text" onChange={e => this.setState({ name: e.target.name })} /> 
-
-                /* 해야 할 일
-                <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroup-sizing-lg" placeholder="enter the password">PassWord</InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm"  type = "text"   onChange={e => this.setState({ pass: e.target.pass })}  />
-
-                <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroup-sizing-lg" placeholder="enter the email" >EMAIL</InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" type = "text" onChange={e => this.setState({ email: e.target.email })}  /> */
-        
         );
     }
 }

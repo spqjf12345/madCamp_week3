@@ -49,9 +49,6 @@ export default class Dialog extends Component {
         });
     }
     
-    //var classes = this.props.show ? 'Dialog' : 'Dialog hidden';
-    //var items = this.props.item;
-    // console.log("items", this.props.item);
     render() {
         const theFlower = localStorage.getItem("flowers");
         console.log(theFlower);
@@ -62,6 +59,16 @@ export default class Dialog extends Component {
         }else {
             flowerArray = [];
         }
+        const LS_KEY_ALL_PLANT = "all_plant"
+
+        let all_plant_count;
+        if(flowerArray.length == 0){
+            all_plant_count = 0;
+        }else{
+            all_plant_count = flowerArray.length
+        }
+       
+        localStorage.setItem(LS_KEY_ALL_PLANT, flowerArray.length); 
         return (
             <div>
                 {flowerArray.map((item, idx) =>
@@ -74,12 +81,7 @@ export default class Dialog extends Component {
                     </div>
                 )}
 
-                {/* <div className={"Dialog1"}> 🎈</div>
-            <div className={"Dialog2"}> 🌻</div>
-            <div className={"Dialog3"}> 🍀</div>
-            <div className={"Dialog4"}> 🌵</div>
-            <div className={"Dialog5"}> 🌿</div>
-            <div className={"Dialog6"}> 🌳</div> */}
+            
             </div>
         );
     }

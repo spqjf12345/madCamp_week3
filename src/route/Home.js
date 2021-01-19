@@ -6,7 +6,6 @@ import Column from '../Column.jsx';
 import '../style/Home.css';
 import '../style/SetTimer.css';
 import Dialog from "./DoneDialog";
-import Timer from "./Timer";
 import SetTimer from "./SetTimer";
 import Fade from '@material-ui/core/Fade'
 import { CommunicationSpeakerPhone } from "material-ui/svg-icons";
@@ -156,7 +155,6 @@ class Home extends React.Component {
       }
       else
       currentFlowersString += (","+theFlower);
-      // console.log(currentFlowersString);
 
       saveFlower(currentFlowersString);
     }
