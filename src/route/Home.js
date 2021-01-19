@@ -10,6 +10,10 @@ import Timer from "./Timer";
 import SetTimer from "./SetTimer";
 import Fade from '@material-ui/core/Fade'
 import { CommunicationSpeakerPhone } from "material-ui/svg-icons";
+import wateringImg from './watering.png';
+import windImg from './wind.png';
+import trimmingImg from './trimming.png';
+
 
 // Styles
 const Container = styled.div`
@@ -50,25 +54,21 @@ class Home extends React.Component {
     }
 
     // 3. Task가 Done 칼럼으로 옮겨졌을 경우
+    const rewardList = [".sunShineContainer", ".wateringContainer", ".windContainer", ".trimContainer"]
+    const REWARD_COUNT = 4;
     if (destination.droppableId === 'column-3') {
+      // (1) 해당 Task를 disableDraggable 한다
+      this.state.tasks[draggableId].isDone = true;
 
-      const item = "🌞";
-      this.state.tasks[draggableId].isDone = true; // 해당 Task를 disableDraggable 한다
-      //showItem(item);
+      // (2) 햇빛을 쪼인다
+      const randomIndex = Math.floor(Math.random() * REWARD_COUNT);
+      const container = rewardList[randomIndex];
+      const randomReward = document.querySelector(container);
+      randomReward.classList.add("showing");
+      setTimeout(() => {
+        randomReward.classList.remove("showing");
+      }, 800)
     }
-    // showItem(item)=() =>{
-    //   <div>
-    //   <Fade in={true} timeout={4000}>
-    //     <p>True Component</p>
-    //   </Fade>
-
-    //   <Fade in={false} timeout={4000}>
-    //     <p>False Component</p>
-    //   </Fade>
-    //   </div>
-    //   // return <Fade className="fade-in" timeout = {2000}> itemcreate {console.log("fade in")} </Fade>
-    // }
-
 
     // 여기서 잠깐... Column 자체가 옮겨졌을 때 처리하기
     if (type === 'column') {
@@ -169,7 +169,6 @@ class Home extends React.Component {
     }
 
     // TODO: 그리고 이렇게 reorder된 index값들을 디비에 저장해야 refresh했을 때도 유지될 수 있는데, 어떻게 하지?
-
   };
 
   render() {
@@ -211,6 +210,19 @@ class Home extends React.Component {
         <div className="budImageContainer">
           <img src="https://www.pngrepo.com/png/169302/180/bud.png"/>
         </div>
+        <div className="sunShineContainer">
+          <img src="https://lh3.googleusercontent.com/proxy/V7_ZR1X-TbB58fpWZCjUgnifEM2Ch4llYZiTUywXD83mVn1YiLHS7B0I0VrdVqEOZPsnXzJ4i3_m_bQWs4_ew6iFla0UJ0NO48WQE90coJkPIy0mwEct06AGgml55w"/>
+        </div>
+        <div className="wateringContainer">
+          <img src={wateringImg}/>
+        </div>
+        <div className="windContainer">
+          <img src={windImg}/>
+        </div>
+        <div className="trimContainer">
+          <img src={trimmingImg}/>
+        </div>
+        
       {/* </div> */}
       </>
     );

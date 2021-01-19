@@ -31,9 +31,11 @@ class SetTimer extends Component {
     const hoursInput = document.querySelector("input[name=hours]");
     const minutesInput = document.querySelector("input[name=minutes]");
     const secondsInput = document.querySelector("input[name=seconds]");
+    const budContainer = document.querySelector(".budImageContainer");
     hoursInput.value="";
     minutesInput.value="";
     secondsInput.value="";
+    budContainer.classList.add("showing");
   }
 
 

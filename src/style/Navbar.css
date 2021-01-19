@@ -8,6 +8,7 @@
 }
 
 .app-title {
+  cursor: pointer;
   margin: auto;
   vertical-align: middle;
   color: #f5f5f5;

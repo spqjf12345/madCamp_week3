@@ -3,11 +3,11 @@ body{
     color: #054231;
     display: flex;
     /* justify-content: center; */
-    background: #49afa8;
-    background-image: url('https://github.com/OlgaKoplik/CodePen/blob/master/leaf.png?raw=true');
-    background-repeat: no-repeat, no-repeat;
+    background: #f7f0de;
+    /* background-image: url('https://github.com/OlgaKoplik/CodePen/blob/master/leaf.png?raw=true'); */
+    /* background-repeat: no-repeat, no-repeat;
     background-position:  200% -40%;
-    background-size: 80%; 
+    background-size: 80%;  */
   }
   
   .card{

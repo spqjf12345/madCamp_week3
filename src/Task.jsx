@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
-import {confirmAlert} from'react-confirm-alert';
+// import {confirmAlert} from'react-confirm-alert';
 
 // Styles
 const Container = styled.div`
@@ -22,22 +22,20 @@ function onClickEditHandler(e) {
 function onClickDeleteHandler(e) {
 	console.log(`clicked ${e.target}`);
 	console.dir(e.target);
-	confirmAlert({
-		title: 'Confirm to submit',
-		message: 'are you sure to do this',
-		button: [
-			{
-			label: 'yes',
-			onClick: () => alert('click yes')
-		},{
-			label: 'no',
-			onClick: () => alert("click no")
-		}
-	]
-	}
-	);
+	// confirmAlert({
+	// 	title: 'Confirm to submit',
+	// 	message: 'are you sure to do this',
+	// 	button: [
+	// 		{
+	// 		label: 'yes',
+	// 		onClick: () => alert('click yes')
+	// 	},{
+	// 		label: 'no',
+	// 		onClick: () => alert("click no")
+	// 	}
+	// ]});
 
-	//alert("삭제하시겠습니까?")
+	alert("삭제하시겠습니까?")
 }
 
 export default class Task extends React.Component {

@@ -1,10 +1,37 @@
-.budImageContainer{
-	display:inline-block;
-	margin-left: 0em;
-	width: 100px;
-	height: 100px;
-}
 
+.budImageContainer{
+	display: none;
+	margin-left: 0em;
+	width: 120px;
+	height: 120px;
+}
+.sunShineContainer{
+	display: none;
+	margin-left: 0em;
+	width: 120px;
+	height: 120px;
+}
+.wateringContainer{
+	display: none;
+	margin-left: 0em;
+	width: 120px;
+	height: 120px;
+}
+.windContainer{
+	display: none;
+	margin-left: 0em;
+	width: 120px;
+	height: 120px;
+}
+.trimContainer{
+	display: none;
+	margin-left: 0em;
+	width: 120px;
+	height: 120px;
+}
+.showing{
+	display: inline-block;
+}
 
 .fade-out-item {
     display: inline-block;
