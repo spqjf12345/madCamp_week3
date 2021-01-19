@@ -20,10 +20,10 @@ class App extends React.Component {
       <Navbar />
       <Switch>
         <Route path='/signup' component={SignUp} />
-        <Route path='/login' exact component={Login} />
-        <Route path='/' component={Home} />
+        <Route path='/login'  component={Login} />
+        <Route path='/' exact component={Home} />
         <Route path='/Profile' component={MyProfile} />
-        <Route path='/MyGarden' component={MyGarden} />
+        <Route path='/mygarden' component={MyGarden} />
       </Switch>
     </Router>
   );

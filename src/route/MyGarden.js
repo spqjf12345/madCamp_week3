@@ -19,6 +19,7 @@ class MyGarden extends React.Component {
             showDialog: true,
             itemFriends: ["🌿","🌳", "🌵", "🎄", "🌲","🌴", "🪵", "🍀", "🌱","🎍","🍃","💐","🌷", "🌸", "🌺", "🥀","🌹", "🌼", "🌻","🌞"]
         
+
         }
     }
     _showDialog() {
@@ -38,7 +39,6 @@ class MyGarden extends React.Component {
                 {/* {this._showItem.bind(this)} */}
                 <Dialog />
                 {/* <Button className='button' onClick={this._showDialog.bind(this)}> Show item </Button> */}
-                {/* <Dialog  show={this.state.showDialog} item = {this.state.itemFriends}/>   */}
                 {/* <Dialog  show={this.state.showDialog} item = {this.state.item1}/> */}
                 {/* <Dialog  show={this.state.showDialog} item = {this.state.item2}/> */}
                 {/* <Dialog  show={this.state.showDialog} item = {this.state.item4}/>  */}

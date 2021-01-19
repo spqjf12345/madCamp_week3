@@ -97,10 +97,6 @@ class SignUpContainer extends React.Component {
         pw: this.state.user.password,
         email: this.state.user.email
       };
-      console.log("ok")
-      console.log(this.state.user.username);
-      console.log(this.state.user.password);
-      console.log(this.state.user.email);
       this.submitSignup(user);
     }
      else {
@@ -124,17 +120,8 @@ class SignUpContainer extends React.Component {
   render() {
     return (
       <div>
-        <SignUpForm
-          onSubmit={this.validateForm}
-          onChange={this.handleChange}
-          onPwChange={this.pwHandleChange}
-          errors={this.state.errors}
-          user={this.state.user}
-          score={this.state.score}
-          btnTxt={this.state.btnTxt}
-          type={this.state.type}
-          pwMask={this.pwMask}
-        />
+        <SignUpForm onSubmit={this.validateForm} onChange={this.handleChange} onPwChange={this.pwHandleChange} e
+        rrors={this.state.errors} user={this.state.user} score={this.state.score} btnTxt={this.state.btnTxt} type={this.state.type} pwMask={this.pwMask}/>
       </div>
     );
   }
