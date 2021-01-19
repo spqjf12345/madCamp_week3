@@ -58,8 +58,8 @@ export default class Task extends React.Component {
 						<div>
 							{this.props.task.content}
 						</div>
-						{<button onClick={onClickEditHandler}>Edit</button>}
-						{<button onClick={onClickDeleteHandler}>Delete</button>}
+						{<button className="editBtn" onClick={onClickEditHandler}>Edit</button>}
+						{<button className="deleteBtn" onClick={onClickDeleteHandler}>Delete</button>}
 					</Container>
 				)}
 			</Draggable>

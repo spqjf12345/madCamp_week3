@@ -33,7 +33,6 @@ export default class Column extends React.Component {
 			showComponent: false,
 			indexTask: 0,
 			key: 0,
-
 		};
 		this.handleClick = this.handleClick.bind(this);
 	}
@@ -59,7 +58,7 @@ export default class Column extends React.Component {
 							<Title {...provided.dragHandleProps}>
 								{this.props.column.title}
 							</Title>
-							<Button type="button" onClick={this.handleClick}>add</Button>
+							<Button className="addBtn" type="button" onClick={this.handleClick}>add</Button>
 
 							<Droppable droppableId={this.props.column.id} type="task">
 								{(provided, snapshot) => (

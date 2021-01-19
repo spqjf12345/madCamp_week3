@@ -1,3 +1,24 @@
+.addBtn, .editBtn, .deleteBtn{
+	border-radius: 5px;
+	width: 45%;
+	height: 3em;
+	vertical-align: middle;
+	font-weight: bold;
+	margin: auto;
+	margin-top: 2em;
+	margin-right: 0.5em;
+	color: #054231;
+	letter-spacing: 1px;
+	/* margin: 20px; */
+	font-size: 0.8rem;
+	padding: 5px;
+	text-align: center;
+	transition: 0.5s;
+	cursor: pointer;
+	border: none;
+	background: #64d488;
+}
+
 .budImageContainer{
 	display: none;
 	text-align: center;
@@ -36,32 +57,6 @@
 .showing{
 	display: inline-block;
 }
-
-.fade-out-item {
-    display: inline-block;
-    /* background: yellow; */
-    padding: 10px;
-    animation: fadeout 3s;
-    -webkit-animation: fadeout 3s; /* Safari and Chrome */
-    animation-fill-mode: forwards;
-  }
-  @keyframes fadeout {
-      from {
-          opacity: 1;
-      }
-      to {
-          opacity: 0;
-      }
-  }
- 
-  @-webkit-keyframes fadeout { /* Safari and Chrome */
-      from {
-          opacity: 1;
-      }
-      to {
-          opacity: 0;
-      }
-  }
 .toDoContainer{
 	display:block;
 	margin-top: 0em;

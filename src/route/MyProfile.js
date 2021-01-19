@@ -40,15 +40,14 @@ const Email =({onChange,valueColumncar})=>
   const KillCount =({onChange,valueColumncar})=>
     <div className="field">
       <label htmlFor="killcount">시든 꽃 수</label>
-      <h3>{localStorage.getItem("kill_plant")}</h3>
-      {console.log(kill_plantText)}
+      <h3>{localStorage.getItem("kill_plant")=="null"? 0 : localStorage.getItem("kill_plant")}</h3>
       {/* <input id="killcount" type="text" onChange={onChange}  maxLength="35"  required/> */}
     </div>
 
     const AllPlant =({onChange,valueColumncar})=>
       <div className="field">
         <label htmlFor="AllPlant">심은 꽃 수</label>
-        <h3>{localStorage.getItem("all_plant")}</h3>
+        <h3>{localStorage.getItem("all_plant")=="null"? 0 : localStorage.getItem("all_plant")}</h3>
         {console.log(all_plantText)}
         </div>
         {/* <input  id="AllPlant"  type="text"   onChange={onChange} maxLength="35"   required/> */}
