@@ -143,9 +143,10 @@ class Home extends React.Component {
   
     return (
 
+        <>
       <div className = "home">
         <SetTimer />
-       
+      </div>
       <DragDropContext
         onDragEnd={this.onDragEnd}
         onDragStart={this.onDragStart}
@@ -172,7 +173,7 @@ class Home extends React.Component {
           )}
         </Droppable>
       </DragDropContext>
-      </div>
+      </>
     );
   }
 }
