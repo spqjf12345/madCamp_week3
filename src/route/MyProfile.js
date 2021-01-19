@@ -7,20 +7,37 @@ const ImgUpload =({onChange,src})=>
       </div>
       <input id="photo-upload" type="file" onChange={onChange}/> 
     </label>
-  
-  
+
+  const nameText = localStorage.getItem("name");
+  const passText = localStorage.getItem("pass");
+  const emailText = localStorage.getItem("email");
+
+  const [toggle, setToggle]
+
+
   const Name =({onChange,value})=>
+  
     <div className="field">
       <label htmlFor="name"> name: </label>
-      <input id="name" type="text" onChange={onChange} maxLength="25"  required/>
+
+      {/* <h3>{nameText}</h3> */}
+      {/* <input id="name" type="text" onChange={onChange} maxLength="25" value = "hi"/> */}
     </div>
   
     
   const Status =({onChange, valueColumncar})=>
     <div className="field">
       <label htmlFor="status">PASSWORD:</label>
+      <h3>{passText}</h3>
       <input id="status" type="text" onChange={onChange}  maxLength="35"  required/>
     </div>
+
+const Email =({onChange,valueColumncar})=>
+<div className="field">
+  <label htmlFor="email">EMAIL</label>
+ <h3>{emailText}</h3>
+  <input id="email" type="text" onChange={onChange}  maxLength="35"  required/>
+</div>
 
   const KillCount =({onChange,valueColumncar})=>
     <div className="field">
@@ -40,33 +57,27 @@ const ImgUpload =({onChange,src})=>
     src,
     name,
     status,
+    email,
     KillCount,
     AllPlant
   })=>
     <div className="card">
       <form onSubmit={onSubmit}>
-        <label className="custom-file-upload fas">
-          {/* <div className="img-wrap" >
-            <img for="photo-upload" src={src}/>
-          </div> */}
-        </label>
         <div className="name">{name}</div>
         <div className="status">{status}</div>
+        <div className="email">{email}</div>
         <div className="KillCount">{KillCount}</div>
         <div className="AllPlant">{AllPlant}</div>
-        <button type="submit" className="edit">Edit Profile </button>
+        <button type="save" className="edit">Edit Profile </button>
       </form>
     </div>
        
         
-  const Edit =({
-    onSubmit,
-    children,
-  })=>
+  const Edit =({ onSubmit, children})=>
     <div className="card">
       <form onSubmit={onSubmit}>
           {children}
-        <button type="submit" className="save">Save </button>
+        <button type="edit" className="save">edit </button>
       </form>
     </div>
   
@@ -76,6 +87,7 @@ const ImgUpload =({onChange,src})=>
       imagePreviewUrl: 'https://github.com/OlgaKoplik/CodePen/blob/master/profile.jpg?raw=true',
       name:'',
       status:'',
+      email:'',
       KillCount:'',
       AllPlant:'',
       active: 'edit'
@@ -97,6 +109,12 @@ const ImgUpload =({onChange,src})=>
       const name = e.target.value;
       this.setState({
         name,
+      });
+    }
+    editEmail = e =>{
+      const email = e.target.value;
+      this.setState({
+        email,
       });
     }
     
@@ -130,7 +148,7 @@ const ImgUpload =({onChange,src})=>
     render() {
       const {imagePreviewUrl, 
              name, 
-             status, killCount, allPlant,
+             status, email, killCount, allPlant,
              active} = this.state;
       return (
         <div>
@@ -139,6 +157,7 @@ const ImgUpload =({onChange,src})=>
               <ImgUpload onChange={this.photoUpload} src={imagePreviewUrl}/>
               <Name onChange={this.editName} value={name}/>
               <Status onChange={this.editStatus} value={status}/>
+              <Email onChange={this.editEmail} value={email}/>
               <KillCount onChange={this.editKillCount} value={killCount}/>
               <AllPlant onChange={this.editAllPlant} value={allPlant}/>
             </Edit>
@@ -148,6 +167,7 @@ const ImgUpload =({onChange,src})=>
               src={imagePreviewUrl} 
               name={name} 
               status={status}
+              email={email}
               KillCount={KillCount}
               AppPlant={AllPlant}/>)}
           

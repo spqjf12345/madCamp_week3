@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from "../initial-data";
@@ -7,6 +7,7 @@ import '../style/Home.css';
 import Dialog from "./DoneDialog";
 import Timer from "./Timer";
 import SetTimer from "./SetTimer";
+import Fade from '@material-ui/core/Fade'
 import { CommunicationSpeakerPhone } from "material-ui/svg-icons";
 
 // Styles
@@ -18,7 +19,6 @@ const Container = styled.div`
 class Home extends React.Component {
 
   state = initialData; //initialData는 지금은 따로 파일에서 하드코딩한 상태. 이제 DB에서 어케 부를지 방법을 찾아보자.
- 
   
   
   // 드래그가 시작되면
@@ -35,10 +35,8 @@ class Home extends React.Component {
   }
   //딱 드롭했을 때가 되면
   onDragEnd = result => {
-    console.log(result);
     document.body.style.color = 'inherit';
     document.body.style.backgroundColor = 'inherit';
-
     const { destination, source, draggableId, type } = result;
 
     // Task가 옮겨졌을 때 처리하기
@@ -54,25 +52,24 @@ class Home extends React.Component {
 
     // 3. Task가 Done 칼럼으로 옮겨졌을 경우
     if (destination.droppableId === 'column-3') {
-      //get item showging 
-      console.log("load item")
-      const item = "🌞"
-    
-      showItem(item)
-      
-      // this.state.itemFade = true; 
-      // <div className="fade-out-item">item </div>
-      // <img src="https://www.pngrepo.com/png/169302/180/bud.png"/>
-      
+
+      const item = "🌞";
       this.state.tasks[draggableId].isDone = true; // 해당 Task를 disableDraggable 한다
-
+      //showItem(item);
     }
-    function showItem(item){
-      // {console.log(item)}
-      // alert(item)
-      return <div className = "fade-out-item"> ${item}</div>
+    // showItem(item)=() =>{
+    //   <div>
+    //   <Fade in={true} timeout={4000}>
+    //     <p>True Component</p>
+    //   </Fade>
 
-    }
+    //   <Fade in={false} timeout={4000}>
+    //     <p>False Component</p>
+    //   </Fade>
+    //   </div>
+    //   // return <Fade className="fade-in" timeout = {2000}> itemcreate {console.log("fade in")} </Fade>
+    // }
+
 
     // 여기서 잠깐... Column 자체가 옮겨졌을 때 처리하기
     if (type === 'column') {

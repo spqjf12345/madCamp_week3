@@ -62,7 +62,6 @@ export default class Dialog extends Component {
         }else {
             flowerArray = [];
         }
-        // const itemFriends= ["🎄", "🎈", "🎃"]
         return (
             <div>
                 {flowerArray.map((item, idx) =>
