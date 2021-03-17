@@ -4,6 +4,8 @@
 A To-do service that lets you grow plants.
 This is for practicing React.
 
+you can see this website ▶️ https://spqjf12345.github.io/madCamp_week3/ 
+
 # 🌱 Gardening To-do? 🌱
 
 Gardening To-do는 보드형 to-do list 서비스인 trello에서 아이디어를 얻은 웹사이트다. 사용자의 동기 부여를 위해 꽃을 키운다는 설정을 추가해 게임적 요소를 얹었다.
