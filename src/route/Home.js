@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from "../initial-data";
-import Column from '../Column.jsx';
+import Column from '../components/Column.jsx';
 import '../style/Home.css';
 import '../style/SetTimer.css';
 import SetTimer from "./SetTimer";
