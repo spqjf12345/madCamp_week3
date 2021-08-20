@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../style/Dialog.css';
 
+
 export default class Dialog extends Component {
 	constructor(props) {
 		super(props);
