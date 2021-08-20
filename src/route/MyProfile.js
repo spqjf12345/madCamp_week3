@@ -1,18 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import '../style/MyProfile.css';
-const ImgUpload =({onChange,src})=>
-<label htmlFor="photo-upload" className="custom-file-upload fas">
-      <div className="img-wrap img-upload" >
-        <img htmlFor="photo-upload" src={src}/>
-      </div>
-      <input id="photo-upload" type="file" onChange={onChange}/> 
-    </label>
+
+const ImgUpload = ({onChange,src}) => 
+  <label htmlFor="photo-upload" className="custom-file-upload fas">
+    <div className="img-wrap img-upload" >
+      <img htmlFor="photo-upload" src={src} alt="upload" />
+    </div>
+    <input id="photo-upload" type="file" onChange={onChange}/> 
+  </label>
 
   const nameText = localStorage.getItem("name");
-  const passText = localStorage.getItem("pass");
   const emailText = localStorage.getItem("email");
-  const all_plantText = localStorage.getItem("all_plant");
-  const kill_plantText = localStorage.getItem("kill_plant");
 
   const Name =({onChange,value})=>
    
@@ -26,7 +24,7 @@ const ImgUpload =({onChange,src})=>
   const Status =({onChange, valueColumncar})=>
     <div className="field">
       <label htmlFor="status">내가 키운 꽃들</label>
-      <h3>{localStorage.getItem("flowers")}</h3>
+      <h3>{localStorage.getItem("flowers")? localStorage.getItem("flowers") : "아직 없어요 ;("}</h3>
       {/* <input id="status" type="text" onChange={onChange}  maxLength="35"  required/> */}
     </div>
 
@@ -40,19 +38,15 @@ const Email =({onChange,valueColumncar})=>
   const KillCount =({onChange,valueColumncar})=>
     <div className="field">
       <label htmlFor="killcount">시든 꽃 수</label>
-      <h3>{localStorage.getItem("kill_plant")=="null"? 0 : localStorage.getItem("kill_plant")}</h3>
+      <h3>{localStorage.getItem("kill_plant")? localStorage.getItem("kill_plant") : 0}</h3>
       {/* <input id="killcount" type="text" onChange={onChange}  maxLength="35"  required/> */}
     </div>
 
-    const AllPlant =({onChange,valueColumncar})=>
+    const AllPlant =({onChange,valueColumncar}) => 
       <div className="field">
         <label htmlFor="AllPlant">심은 꽃 수</label>
-        <h3>{localStorage.getItem("all_plant")=="null"? 0 : localStorage.getItem("all_plant")}</h3>
-        {console.log(all_plantText)}
-        </div>
-        {/* <input  id="AllPlant"  type="text"   onChange={onChange} maxLength="35"   required/> */}
-      
-  
+        <h3>{localStorage.getItem("all_plant")? localStorage.getItem("all_plant") : 0}</h3>
+      </div>
   
   const Profile =({
     onSubmit,
