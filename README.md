@@ -4,6 +4,8 @@
 
 Gardening To-do는 보드형 to-do List인 trello에 사용자의 동기를 부여해주는 웹사이트이다.
 
+데모▶ [https://spqjf12345.github.io/madCamp_week3](https://spqjf12345.github.io/madCamp_week3)
+
 기존 trello 역시 due date 기능이 있어 해야 할 일을 장려 할 수 있지만 그에 대한 보상이 없어 보통 시간 설정 기능을 사용하지 않는다.
 이에 gardening To-do는 사용자의 참여와 보상 심리에 부응하고자 game effect 요소를 추가하였다. 
 사용자는 Gardening To-do를 통해 해야 할 일도 끝내고 나만의 정원도 가꿀 수 있다.
