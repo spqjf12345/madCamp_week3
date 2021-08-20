@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
-// import {confirmAlert} from'react-confirm-alert';
 
 // Styles
 const Container = styled.div`
