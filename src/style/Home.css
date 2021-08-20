@@ -1,102 +1,95 @@
-.addBtn, .editBtn, .deleteBtn{
-	border-radius: 5px;
-	width: 45%;
-	height: 3em;
-	vertical-align: middle;
-	font-weight: bold;
-	margin: auto;
-	margin-top: 2em;
-	margin-right: 0.5em;
-	color: #054231;
-	letter-spacing: 1px;
-	/* margin: 20px; */
-	font-size: 0.8rem;
-	padding: 5px;
-	text-align: center;
-	transition: 0.5s;
-	cursor: pointer;
-	border: none;
-	background: #64d488;
+.addBtn,
+.editBtn,
+.deleteBtn {
+  border-radius: 5px;
+  width: 45%;
+  height: 3em;
+  vertical-align: middle;
+  font-weight: bold;
+  margin: auto;
+  margin-top: 2em;
+  margin-right: 0.5em;
+  color: #054231;
+  letter-spacing: 1px;
+  /* margin: 20px; */
+  font-size: 0.8rem;
+  padding: 5px;
+  text-align: center;
+  transition: 0.5s;
+  cursor: pointer;
+  border: none;
+  background: #64d488;
 }
 
-.budImageContainer{
-	display: none;
-	text-align: center;
-	margin-left: 50em;
-	width: 200px;
-	height: 200px;
+.sunShineContainer {
+  display: none;
+  margin-left: 60em;
+  width: 120px;
+  height: 120px;
 }
-.sunShineContainer{
-	/* display: inline-block; */
-	display: none;
-	margin-left: 60em;
-	width: 120px;
-	height: 120px;
+.wateringContainer {
+  display: none;
+  margin-left: 60em;
+  width: 120px;
+  height: 120px;
 }
-.wateringContainer{
-	/* display: inline-block; */
-	display: none;
-	margin-left: 60em;
-	width: 120px;
-	height: 120px;
+.windContainer {
+  display: none;
+  margin-left: 60em;
+  width: 120px;
+  height: 120px;
 }
-.windContainer{
-	/* display: inline-block; */
-	display: none;
-	margin-left: 60em;
-	width: 120px;
-	height: 120px;
+.trimContainer {
+  display: none;
+  margin-left: 60em;
+  width: 120px;
+  height: 120px;
 }
-.trimContainer{
-	/* display: inline-block; */
-	display: none;
-	margin-left: 60em;
-	width: 120px;
-	height: 120px;
+.showing {
+  display: inline-block;
 }
-.showing{
-	display: inline-block;
-}
-.toDoContainer{
-	display:block;
-	margin-top: 0em;
-	margin-left:37em;
-	width: 50%;
-	text-align: center;
+.toDoContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
-.form-control{
-	border-radius: 6px;
-	width: min-content;
-	margin-top: 1em;
-	margin-right: 1em;
+.form-control {
+  border-radius: 6px;
+  width: min-content;
+  margin-top: 1em;
+  margin-right: 1em;
 }
 
-.startBtn, .stopBtn, .resetBtn{
-	border-radius: 6px;
-	width: min-content;
-	font-weight: bold;
-	margin-top: 1em;
-	margin-left: 0;
-	margin-bottom: 1em;
-	margin-right: 1em;
-	
-	position: relative;
-	color: #054231;
-	letter-spacing: 1px;
-	/* margin: 20px; */
-	font-size: 0.8rem;
-	padding: 10px;
-	text-align: center;
-	transition: 0.5s;
-	cursor: pointer;
-	border: none;
-	background: #64d488;
+.startBtn,
+.stopBtn,
+.resetBtn {
+  border-radius: 6px;
+  width: min-content;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-left: 0;
+  margin-bottom: 1em;
+  margin-right: 1em;
+
+  position: relative;
+  color: #054231;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  padding: 10px;
+  text-align: center;
+  transition: 0.5s;
+  cursor: pointer;
+  border: none;
+  background: #64d488;
 }
 
-.startBtn:hover, .stopBtn:hover, .resetBtn:hover{
-	left: 0;
-	color: #fff;
-	width: 180px;
-	box-shadow: 0px 0px 20px 0px  #1AAE5D;
+.startBtn:hover,
+.stopBtn:hover,
+.resetBtn:hover {
+  left: 0;
+  color: #fff;
+  width: 180px;
+  box-shadow: 0px 0px 20px 0px #1aae5d;
 }

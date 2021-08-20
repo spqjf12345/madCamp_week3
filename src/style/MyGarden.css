@@ -1,11 +1,6 @@
-.flex-container {
-    display: flex;
-    flex-direction: row;
-}
-.img-garden{
-    width: 700px;
-    height: 700px;
-    background-image: url('../Image/ground1.png');
-    background-size: contain;
-    background-repeat: no-repeat;
+.img-garden {
+  width: 550px;
+  height: 550px;
+  background-image: url("../assets/images/ground.png");
+  background-size: cover;
 }

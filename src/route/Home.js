@@ -1,17 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from "../initial-data";
 import Column from '../Column.jsx';
 import '../style/Home.css';
 import '../style/SetTimer.css';
-import Dialog from "./DoneDialog";
 import SetTimer from "./SetTimer";
-import Fade from '@material-ui/core/Fade'
-import { CommunicationSpeakerPhone } from "material-ui/svg-icons";
-import wateringImg from './watering.png';
-import windImg from './wind.png';
-import trimmingImg from './trimming.png';
+import sunShineImg from '../assets/images/sunshine.jpg';
+import wateringImg from '../assets/images/watering.png';
+import windImg from '../assets/images/wind.png';
+import trimmingImg from '../assets/images/trimming.png';
 
 // Styles
 const Container = styled.div`
@@ -56,9 +54,11 @@ class Home extends React.Component {
     const REWARD_COUNT = 4;
     if (destination.droppableId === 'column-3') {
       // (1) 해당 Task를 disableDraggable 한다
-      this.state.tasks[draggableId].isDone = true;
+      const newState = {...this.state.tasks}
+      newState[draggableId].isDone = true;
+      this.setState({newState})
 
-      // (2) 햇빛을 쪼인다
+      // (2) 랜덤한 보상이미지가 나타난다(햇빛, 바람, 물 등)
       const randomIndex = Math.floor(Math.random() * REWARD_COUNT);
       const container = rewardList[randomIndex];
       const randomReward = document.querySelector(container);
@@ -133,70 +133,67 @@ class Home extends React.Component {
     }
     this.setState(newState)
     
-    console.log("Todo is "+newState.columns["column-1"].taskIds);
-    console.log("In Progress is "+newState.columns["column-2"].taskIds);
-    
     // 6. Task가 Column 너머 옮겨졌을 때, 이제 더이상 To-do, In Progress Column에 아무 것도 없을 경우(즉 전부 Done칼럼으로 옮겨졌을 경우)
     const toDoIsNotEmpty = newState.columns["column-1"].taskIds.length;
     const InProgressIsNotEmpty = newState.columns["column-2"].taskIds.length;
     const FLOWERS = ["🌹","🌺","🌻","🌼","🌷","🍀","🌵"];
     const FLOWER_COUNT = 7;
     const LS_KEY_FLOWERS = "flowers";
+      const LS_KEY_ALL_PLANT = "all_plant";
 
     if (!toDoIsNotEmpty && !InProgressIsNotEmpty) {
       const randomIndex = Math.floor(Math.random() * FLOWER_COUNT);
       const theFlower = FLOWERS[randomIndex];
       alert(`축하합니다!\n꽃이 자랐어요.\n${theFlower}`);
 
-      let currentFlowersString = getFlower();
-      if (!currentFlowersString){ // local에 아무것도 없음
-        currentFlowersString = theFlower;
-      }
-      else
-      currentFlowersString += (","+theFlower);
-
-      saveFlower(currentFlowersString);
+      let currentFlowers = getFlower();
+      currentFlowers ? currentFlowers += ("," + theFlower) : currentFlowers = theFlower;
+      saveFlower(currentFlowers);
+      updatePlantCount(currentFlowers)
     }
+
     function getFlower(){
       return localStorage.getItem(LS_KEY_FLOWERS);
     }
+    
     function saveFlower(flowers){
-      
       localStorage.setItem(LS_KEY_FLOWERS, flowers);
     }
 
-    // TODO: 그리고 이렇게 reorder된 index값들을 디비에 저장해야 refresh했을 때도 유지될 수 있는데, 어떻게 하지?
+    function updatePlantCount(flowers){
+      const currentFlowers = flowers;
+      let flowerArray;
+      currentFlowers ? flowerArray = currentFlowers.split(",") : flowerArray = [];
+      localStorage.setItem(LS_KEY_ALL_PLANT, flowerArray.length);
+    }
   };
 
   render() {
     return (
       <>
-      <SetTimer
-        toDoIsNotEmpty={this.state.columns["column-1"].taskIds.length}
-        InProgressIsNotEmpty={this.state.columns["column-2"].taskIds.length}
-      />
-      
-      <div className="sunShineContainer">
-        <img src="https://lh3.googleusercontent.com/proxy/V7_ZR1X-TbB58fpWZCjUgnifEM2Ch4llYZiTUywXD83mVn1YiLHS7B0I0VrdVqEOZPsnXzJ4i3_m_bQWs4_ew6iFla0UJ0NO48WQE90coJkPIy0mwEct06AGgml55w" />
-      </div>
-      <div className="wateringContainer">
-        <img src={wateringImg} />
-      </div>
-      <div className="windContainer">
-        <img src={windImg} />
-      </div>
-      <div className="trimContainer">
-        <img src={trimmingImg} />
-      </div>
-      <div className="budImageContainer">
-        <img src="https://media1.giphy.com/media/1yTgqsdYPFw4Oqly5T/giphy.gif" />
-      </div>
-      {/* <div className="home"> */}
+        <SetTimer
+          toDoIsNotEmpty={this.state.columns["column-1"].taskIds.length}
+          InProgressIsNotEmpty={this.state.columns["column-2"].taskIds.length}
+        />
+        
+        <div className="sunShineContainer">
+          <img src={sunShineImg} alt="sunshine" />
+        </div>
+        <div className="wateringContainer">
+          <img src={wateringImg} alt="watering" />
+        </div>
+        <div className="windContainer">
+          <img src={windImg} alt="wind" />
+        </div>
+        <div className="trimContainer">
+          <img src={trimmingImg} alt="trim" />
+        </div>
+        
         <div className="toDoContainer">
           <DragDropContext
-          onDragEnd={this.onDragEnd}
-          onDragStart={this.onDragStart}
-          onDragUpdate={this.onDragUpdate}
+            onDragEnd={this.onDragEnd}
+            onDragStart={this.onDragStart}
+            onDragUpdate={this.onDragUpdate}
           >
             <Droppable
               droppableId="all-columns"
@@ -214,14 +211,11 @@ class Home extends React.Component {
                     return <Column key={column.id} column={column} tasks={tasks} index={index} />;
                   })}
                   {provided.placeholder}
-                  
                 </Container>
               )}
             </Droppable>
           </DragDropContext>
         </div>
-        
-      {/* </div> */}
       </>
     );
   }

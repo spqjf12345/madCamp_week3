@@ -1,8 +1,7 @@
-import React, {Text} from "react";
-import {Row, Col, Container} from "react-bootstrap"
-import img_woman from '../Image/woman.png';
-// import "../style/Profile.css"
+import React from "react";
+import img_woman from '../assets/images/woman.png';
 import '../style/MyProfile.css';
+
 class Profile extends React.Component {
 	constructor(props) {
 		super(props);
@@ -14,20 +13,16 @@ class Profile extends React.Component {
 		  }  
 		};
 	render(){
-	return (
-		<div className='Profile'>
-			{/* <motion.div animate = {{scale:0.5}}/> */}
-			<img src = {img_woman}/>
-			<p>name : {this.state.nickname}</p>
-			<p>PassWord : {this.state.password}</p>
-			<p>plant count : {this.state.lifeCount}</p>
-			<p>dead plant count : {this.state.killCount}</p>
-
-		</div>
-
-	);
+		return (
+			<div className='Profile'>
+				<img src={img_woman} alt="woman"/>
+				<p>name : {this.state.nickname}</p>
+				<p>PassWord : {this.state.password}</p>
+				<p>plant count : {this.state.lifeCount}</p>
+				<p>dead plant count : {this.state.killCount}</p>
+			</div>
+		);
 	}
 }
-
 
 export default Profile;

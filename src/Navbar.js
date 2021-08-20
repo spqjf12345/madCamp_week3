@@ -3,12 +3,11 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
-import './style/Navbar.css';
 import { IconContext } from 'react-icons';
+import './style/Navbar.css';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
-
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
@@ -18,8 +17,9 @@ function Navbar() {
           <FaIcons.FaBars onClick={showSidebar} />
         </Link>
         <div className='app-title'>
-          <h1>Gardening To-do🌱</h1>
-          {/* QA credit: 다진이가 오타 발견 */}
+          <Link to='/' style={{color:'white', textDecoration:'none'}}>
+            <h1>Gardening To-do🌱</h1>
+          </Link>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
