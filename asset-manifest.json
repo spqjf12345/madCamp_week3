@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/madCamp_week3/static/css/main.971304ff.chunk.css",
+    "main.js": "/madCamp_week3/static/js/main.b972a3e4.chunk.js",
+    "main.js.map": "/madCamp_week3/static/js/main.b972a3e4.chunk.js.map",
+    "runtime-main.js": "/madCamp_week3/static/js/runtime-main.e780fe2e.js",
+    "runtime-main.js.map": "/madCamp_week3/static/js/runtime-main.e780fe2e.js.map",
+    "static/js/2.9ee660b9.chunk.js": "/madCamp_week3/static/js/2.9ee660b9.chunk.js",
+    "static/js/2.9ee660b9.chunk.js.map": "/madCamp_week3/static/js/2.9ee660b9.chunk.js.map",
+    "index.html": "/madCamp_week3/index.html",
+    "static/css/main.971304ff.chunk.css.map": "/madCamp_week3/static/css/main.971304ff.chunk.css.map",
+    "static/js/2.9ee660b9.chunk.js.LICENSE.txt": "/madCamp_week3/static/js/2.9ee660b9.chunk.js.LICENSE.txt",
+    "static/media/MyGarden.css": "/madCamp_week3/static/media/ground1.47ddf3b8.png",
+    "static/media/trimming.a0da9e27.png": "/madCamp_week3/static/media/trimming.a0da9e27.png",
+    "static/media/watering.22c2f31d.png": "/madCamp_week3/static/media/watering.22c2f31d.png",
+    "static/media/wind.7d436f15.png": "/madCamp_week3/static/media/wind.7d436f15.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e780fe2e.js",
+    "static/js/2.9ee660b9.chunk.js",
+    "static/css/main.971304ff.chunk.css",
+    "static/js/main.b972a3e4.chunk.js"
+  ]
+}
