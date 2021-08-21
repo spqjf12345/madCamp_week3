@@ -11,7 +11,6 @@
   margin-right: 0.5em;
   color: #054231;
   letter-spacing: 1px;
-  /* margin: 20px; */
   font-size: 0.8rem;
   padding: 5px;
   text-align: center;
@@ -21,27 +20,11 @@
   background: #64d488;
 }
 
-.sunShineContainer {
-  display: none;
-  margin-left: 60em;
-  width: 120px;
-  height: 120px;
-}
-.wateringContainer {
-  display: none;
-  margin-left: 60em;
-  width: 120px;
-  height: 120px;
-}
-.windContainer {
-  display: none;
-  margin-left: 60em;
-  width: 120px;
-  height: 120px;
-}
+.sunShineContainer,
+.wateringContainer,
+.windContainer,
 .trimContainer {
   display: none;
-  margin-left: 60em;
   width: 120px;
   height: 120px;
 }

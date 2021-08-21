@@ -1,9 +1,9 @@
 import React from 'react';
 import {HashRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './route/Home'
-import MyProfile from './route/MyProfile'
-import MyGarden from './route/MyGarden';
+import Home from './routes/Home'
+import MyProfile from './routes/MyProfile'
+import MyGarden from './routes/MyGarden';
 import './style/App.css';
 
 class App extends React.Component {
