@@ -2,6 +2,9 @@
 ### Mad Camp(2020-winter) Week3 Project
 ### 🌱 Gardening To-do? 🌱
 
+![gardeningToDo](https://user-images.githubusercontent.com/18097984/130317027-10722130-9214-43f3-92b5-1c714a3e92cb.gif)
+
+
 Gardening To-do는 보드형 to-do List인 trello에 사용자의 동기를 부여해주는 웹사이트이다.
 
 데모▶ [https://heejaykong.github.io/mad-camp-week3-Gardening-To-Do](https://heejaykong.github.io/mad-camp-week3-Gardening-To-Do)
