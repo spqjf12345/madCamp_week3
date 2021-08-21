@@ -10,7 +10,7 @@ import wateringImg from '../assets/images/watering.png';
 import windImg from '../assets/images/wind.png';
 import trimmingImg from '../assets/images/trimming.png';
 // and so on
-import initialData from "../initial-data";
+import initialData from "../data/initial-data";
 import '../style/Home.css';
 import '../style/SetTimer.css';
 
